@@ -1,0 +1,4268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no">
+
+<meta name="theme-color" content="#080b12">
+
+<title>HRRY KEY</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:#080b12;
+    color:#fff;
+    font-family:Inter,Arial,sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+:root{
+    --bg:#080b12;
+    --card:#10151f;
+    --card2:#151b27;
+    --gold:#ffd447;
+    --gold2:#ffb800;
+    --green:#32d583;
+    --red:#ff4d67;
+    --blue:#4da3ff;
+    --muted:#8e99aa;
+    --border:rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+#openingScreen{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255,196,48,.12),
+            transparent 35%
+        ),
+        #080b12;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    transition:.45s ease;
+}
+
+.openLogo{
+    width:92px;
+    height:92px;
+    border-radius:28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:42px;
+    font-weight:900;
+
+    color:#111;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff0a8,
+            #ffd447,
+            #ffb000
+        );
+
+    box-shadow:
+        0 20px 70px rgba(255,190,0,.22);
+}
+
+.openTitle{
+    margin-top:20px;
+    font-size:27px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.openSub{
+    margin-top:8px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.loaderLine{
+    width:150px;
+    height:4px;
+    border-radius:20px;
+    overflow:hidden;
+    background:#202632;
+    margin-top:24px;
+}
+
+.loaderLine span{
+    display:block;
+    height:100%;
+    width:45%;
+    border-radius:20px;
+    background:var(--gold);
+    animation:load 1s infinite ease-in-out;
+}
+
+@keyframes load{
+    0%{transform:translateX(-160%)}
+    100%{transform:translateX(340%)}
+}
+
+
+/* =====================================================
+   LOGIN OVERLAY
+===================================================== */
+
+#loginOverlay{
+    position:fixed;
+    inset:0;
+    z-index:99990;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,212,71,.13),
+            transparent 40%
+        ),
+        rgba(5,7,11,.98);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.loginCard{
+    width:100%;
+    max-width:430px;
+
+    padding:28px 22px 22px;
+
+    border:1px solid
+        rgba(255,212,71,.14);
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24,29,40,.98),
+            rgba(12,16,24,.98)
+        );
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.55);
+}
+
+.loginIcon{
+    width:64px;
+    height:64px;
+    margin:0 auto 17px;
+
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:29px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff0a8,
+            #ffd447,
+            #ffb000
+        );
+
+    color:#151515;
+}
+
+.loginTitle{
+    text-align:center;
+    font-size:25px;
+    font-weight:900;
+}
+
+.loginSub{
+    text-align:center;
+    margin-top:8px;
+    line-height:1.5;
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:24px;
+}
+
+.field{
+    margin-bottom:15px;
+}
+
+.field label{
+    display:block;
+    font-size:12px;
+    font-weight:800;
+    color:#aeb7c5;
+    margin:0 0 8px 3px;
+}
+
+.input{
+    width:100%;
+    height:54px;
+
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    background:#0b1018;
+    color:white;
+
+    padding:0 16px;
+
+    outline:none;
+
+    font-size:15px;
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.input:focus{
+    border-color:
+        rgba(255,212,71,.55);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(255,212,71,.07);
+}
+
+.primaryBtn{
+    width:100%;
+    height:55px;
+
+    border:0;
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe68a,
+            #ffd447,
+            #ffb400
+        );
+
+    color:#17130a;
+
+    font-size:15px;
+    font-weight:900;
+
+    box-shadow:
+        0 13px 35px
+        rgba(255,188,0,.17);
+}
+
+.primaryBtn:active{
+    transform:scale(.98);
+}
+
+.loginNote{
+    text-align:center;
+    margin-top:14px;
+    color:#657083;
+    font-size:11px;
+}
+
+
+/* =====================================================
+   MAIN APP
+===================================================== */
+
+#app{
+    display:none;
+    min-height:100vh;
+    padding-bottom:35px;
+}
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    padding:15px 16px;
+
+    background:
+        rgba(8,11,18,.88);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+.headerInner{
+    max-width:620px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.brandIcon{
+    width:42px;
+    height:42px;
+
+    border-radius:13px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff0a8,
+            #ffd447,
+            #ffb000
+        );
+
+    color:#151515;
+    font-weight:900;
+}
+
+.brandName{
+    font-size:17px;
+    font-weight:900;
+}
+
+.brandSub{
+    font-size:10px;
+    color:var(--muted);
+    margin-top:2px;
+}
+
+.profileMini{
+    max-width:150px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+    padding:9px 12px;
+    border-radius:12px;
+
+    background:#111722;
+    border:1px solid var(--border);
+
+    font-size:11px;
+    font-weight:800;
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+.container{
+    width:100%;
+    max-width:620px;
+    margin:auto;
+    padding:22px 16px;
+}
+
+.hero{
+    padding:25px 21px;
+
+    border-radius:27px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(255,212,71,.16),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            #171d29,
+            #0d121a
+        );
+
+    border:
+        1px solid
+        rgba(255,212,71,.10);
+}
+
+.heroBadge{
+    display:inline-flex;
+    padding:7px 10px;
+    border-radius:9px;
+
+    background:
+        rgba(255,212,71,.10);
+
+    color:var(--gold);
+
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.heroTitle{
+    font-size:32px;
+    line-height:1.08;
+    font-weight:900;
+    margin:15px 0 9px;
+}
+
+.heroTitle span{
+    color:var(--gold);
+}
+
+.heroText{
+    color:#9ba5b5;
+    line-height:1.55;
+    font-size:13px;
+}
+
+.priceBox{
+    margin-top:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.price{
+    font-size:34px;
+    font-weight:900;
+    color:var(--gold);
+}
+
+.priceSmall{
+    color:#8e98a9;
+    font-size:11px;
+    font-weight:700;
+}
+
+.getBtn{
+    border:0;
+    border-radius:15px;
+
+    padding:14px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe68a,
+            #ffd447,
+            #ffb000
+        );
+
+    color:#15120a;
+    font-weight:900;
+    font-size:13px;
+}
+
+
+/* =====================================================
+   FEATURE CARDS
+===================================================== */
+
+.features{
+    display:grid;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:14px;
+}
+
+.feature{
+    padding:16px 11px;
+
+    border-radius:17px;
+
+    background:#10151f;
+    border:1px solid var(--border);
+
+    text-align:center;
+}
+
+.featureIcon{
+    font-size:22px;
+}
+
+.featureTitle{
+    margin-top:9px;
+    font-size:11px;
+    font-weight:900;
+}
+
+.featureSub{
+    margin-top:4px;
+    color:#687386;
+    font-size:9px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.statusCard{
+    display:none;
+
+    margin-top:14px;
+
+    padding:17px;
+
+    border-radius:20px;
+
+    background:#10151f;
+    border:1px solid var(--border);
+}
+
+.statusTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.statusLabel{
+    font-size:11px;
+    color:#8e98a8;
+    font-weight:800;
+}
+
+.statusValue{
+    margin-top:4px;
+    font-size:17px;
+    font-weight:900;
+}
+
+.statusDot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 18px currentColor;
+}
+
+.statusMessage{
+    margin-top:13px;
+    color:#8d98aa;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.keyBox{
+    margin-top:15px;
+    display:none;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    background:
+        rgba(50,213,131,.07);
+
+    border:
+        1px solid
+        rgba(50,213,131,.20);
+}
+
+.keyLabel{
+    color:#74e5a8;
+    font-size:10px;
+    font-weight:900;
+}
+
+.keyValue{
+    margin-top:8px;
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:1px;
+    word-break:break-all;
+}
+
+.copyKey{
+    width:100%;
+    height:43px;
+    margin-top:11px;
+
+    border:0;
+    border-radius:12px;
+
+    background:#32d583;
+    color:#07140d;
+
+    font-weight:900;
+}
+
+
+
+/* =====================================================
+   ENHANCED REQUEST / HISTORY UI
+===================================================== */
+
+.getBtn{
+    min-width:170px;
+    min-height:58px;
+    padding:15px 22px;
+    font-size:15px;
+    box-shadow:0 12px 35px rgba(255,188,0,.20);
+    transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+    animation:getKeyPulse 2.2s ease-in-out infinite;
+}
+.getBtn:hover{
+    transform:translateY(-2px) scale(1.01);
+    box-shadow:0 18px 45px rgba(255,188,0,.28);
+}
+.getBtn:active{transform:scale(.96)}
+@keyframes getKeyPulse{
+    0%,100%{box-shadow:0 12px 35px rgba(255,188,0,.18)}
+    50%{box-shadow:0 16px 48px rgba(255,188,0,.34)}
+}
+
+.historyCard{
+    margin-top:14px;
+    padding:17px;
+    border-radius:20px;
+    background:#10151f;
+    border:1px solid var(--border);
+}
+.historyHead{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+.historyTitle{
+    font-size:14px;
+    font-weight:900;
+}
+.historyCount{
+    color:#737f91;
+    font-size:10px;
+    font-weight:800;
+}
+.historyList{
+    display:grid;
+    gap:9px;
+    margin-top:12px;
+}
+.historyItem{
+    padding:12px;
+    border-radius:14px;
+    background:#0b1018;
+    border:1px solid rgba(255,255,255,.06);
+}
+.historyRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+.historyStatus{
+    font-size:11px;
+    font-weight:900;
+}
+.historyMeta{
+    margin-top:5px;
+    color:#748093;
+    font-size:9px;
+    line-height:1.45;
+}
+.historyPending{color:#ffd447}
+.historyAccepted{color:#32d583}
+.historyRejected{color:#ff4d67}
+.historyEmpty{
+    padding:12px;
+    color:#687386;
+    font-size:10px;
+    text-align:center;
+}
+
+.statusCard.pendingState{
+    border-color:rgba(255,212,71,.24);
+}
+.statusCard.acceptedState{
+    border-color:rgba(50,213,131,.28);
+}
+.statusCard.rejectedState{
+    border-color:rgba(255,77,103,.28);
+}
+.statusCard.rejectedState .statusValue,
+.statusCard.rejectedState .statusMessage{
+    color:#ff6d82;
+}
+.statusCard.acceptedState .statusValue,
+.statusCard.acceptedState .statusMessage{
+    color:#55dfa0;
+}
+.statusCard.pendingState .statusValue{
+    color:#ffd447;
+}
+
+#requestStatusOverlay{
+    position:fixed;
+    inset:0;
+    z-index:100020;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(2,4,8,.92);
+    backdrop-filter:blur(22px);
+}
+.requestStatusCard{
+    width:min(460px,100%);
+    padding:28px 20px 20px;
+    border-radius:28px;
+    background:linear-gradient(145deg,#171d29,#0d121a);
+    border:1px solid rgba(255,255,255,.09);
+    box-shadow:0 35px 100px rgba(0,0,0,.60);
+    text-align:center;
+    transform:translateY(18px) scale(.96);
+    opacity:0;
+    animation:statusPop .28s ease forwards;
+}
+@keyframes statusPop{
+    to{transform:translateY(0) scale(1);opacity:1}
+}
+.requestStatusIcon{
+    width:78px;
+    height:78px;
+    margin:0 auto 15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:24px;
+    font-size:38px;
+    background:#121823;
+}
+.requestStatusTitle{
+    font-size:23px;
+    font-weight:900;
+}
+.requestStatusText{
+    margin-top:8px;
+    color:#8e99aa;
+    font-size:12px;
+    line-height:1.55;
+}
+.requestStatusBadge{
+    display:inline-flex;
+    margin-top:16px;
+    padding:9px 14px;
+    border-radius:100px;
+    background:#121823;
+    font-size:10px;
+    font-weight:900;
+}
+.requestStatusKey{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border-radius:17px;
+    background:rgba(50,213,131,.08);
+    border:1px solid rgba(50,213,131,.25);
+    color:#62e59b;
+    font-size:21px;
+    font-weight:900;
+    word-break:break-all;
+}
+.requestStatusActions{
+    display:grid;
+    gap:10px;
+    margin-top:18px;
+}
+.requestPrimary,
+.requestSecondary{
+    width:100%;
+    min-height:55px;
+    border:0;
+    border-radius:17px;
+    font-size:14px;
+    font-weight:900;
+}
+.requestPrimary{
+    background:linear-gradient(135deg,#ffe68a,#ffd447,#ffb400);
+    color:#15120a;
+}
+.requestSecondary{
+    background:#171e29;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.08);
+}
+.requestStatusCard.pending .requestStatusBadge{color:#ffd447}
+.requestStatusCard.accepted .requestStatusBadge{color:#32d583}
+.requestStatusCard.rejected .requestStatusBadge{color:#ff4d67}
+
+.uploadBox.uploaded{
+    border-color:rgba(50,213,131,.45);
+    background:rgba(50,213,131,.06);
+}
+.uploadPreview{
+    display:none;
+    width:74px;
+    height:74px;
+    margin:0 auto 10px;
+    border-radius:16px;
+    overflow:hidden;
+    border:2px solid rgba(50,213,131,.35);
+    background:#0b1018;
+}
+.uploadPreview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.uploadBox.uploaded .uploadPreview{display:block}
+.uploadBox.uploaded .uploadIcon{display:none}
+.uploadBox.uploaded .uploadTitle{
+    color:#55dfa0;
+    font-size:16px;
+}
+.uploadBox.uploaded .uploadSub{color:#83cfa9}
+
+.submitBtn{
+    min-height:62px;
+    font-size:15px;
+    letter-spacing:.2px;
+    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    box-shadow:0 13px 35px rgba(255,188,0,.18);
+}
+.submitBtn:active{transform:scale(.975)}
+.submitBtn.submitting{
+    position:relative;
+    color:transparent;
+    box-shadow:0 0 0 9999px rgba(255,212,71,.035), 0 18px 55px rgba(255,188,0,.24);
+}
+.submitBtn.submitting:after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:25px;
+    height:25px;
+    margin:-12.5px 0 0 -12.5px;
+    border:3px solid rgba(21,18,10,.25);
+    border-top-color:#15120a;
+    border-radius:50%;
+    animation:submitSpin .72s linear infinite;
+}
+@keyframes submitSpin{to{transform:rotate(360deg)}}
+
+.resultBox.fullResult{
+    position:fixed;
+    inset:0;
+    z-index:100030;
+    margin:0;
+    padding:28px 20px;
+    border:0;
+    border-radius:0;
+    display:none;
+    background:rgba(2,4,8,.94);
+    backdrop-filter:blur(24px);
+    align-items:center;
+    justify-content:center;
+}
+.fullResultInner{
+    width:min(460px,100%);
+    padding:28px 20px;
+    border-radius:28px;
+    background:linear-gradient(145deg,#171d29,#0d121a);
+    border:1px solid rgba(255,255,255,.09);
+    text-align:center;
+    box-shadow:0 35px 100px rgba(0,0,0,.60);
+}
+.fullResult .resultIcon{font-size:58px}
+.fullResult .resultTitle{font-size:24px}
+.fullResult .resultText{font-size:12px}
+
+@media(max-width:370px){
+    .getBtn{min-width:150px;font-size:13px}
+}
+
+/* =====================================================
+   PAYMENT MODAL
+===================================================== */
+
+#paymentModal{
+    position:fixed;
+    inset:0;
+    z-index:9990;
+
+    display:none;
+
+    background:
+        rgba(3,5,9,.88);
+
+    backdrop-filter:
+        blur(12px);
+
+    overflow-y:auto;
+
+    padding:20px 14px;
+}
+
+.paymentPage{
+    width:100%;
+    max-width:520px;
+    margin:0 auto;
+
+    padding-bottom:30px;
+}
+
+.paymentHeader{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.backBtn{
+    width:43px;
+    height:43px;
+
+    border:1px solid var(--border);
+    border-radius:13px;
+
+    background:#121822;
+    color:#fff;
+
+    font-size:20px;
+}
+
+.paymentHeading{
+    font-size:20px;
+    font-weight:900;
+}
+
+.paymentSub{
+    color:#7e899b;
+    font-size:11px;
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   QR SCANNER
+===================================================== */
+
+.qrCard{
+    padding:17px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171d28,
+            #0e131c
+        );
+
+    border:
+        1px solid
+        rgba(255,212,71,.13);
+
+    text-align:center;
+}
+
+.receiverBadge{
+    display:inline-flex;
+
+    padding:7px 12px;
+
+    border-radius:100px;
+
+    background:
+        rgba(255,212,71,.10);
+
+    color:var(--gold);
+
+    font-size:10px;
+    font-weight:900;
+}
+
+.receiverName{
+    margin-top:8px;
+
+    font-size:18px;
+    font-weight:900;
+}
+
+.qrWrap{
+    margin:17px auto 14px;
+
+    width:min(280px,78vw);
+    aspect-ratio:1;
+
+    padding:11px;
+
+    border-radius:22px;
+
+    background:#fff;
+
+    box-shadow:
+        0 18px 50px
+        rgba(0,0,0,.35);
+
+    position:relative;
+
+    cursor:pointer;
+}
+
+.qrWrap img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:contain;
+
+    border-radius:13px;
+}
+
+.qrTap{
+    position:absolute;
+
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+
+    padding:7px 11px;
+
+    border-radius:100px;
+
+    background:rgba(0,0,0,.72);
+
+    color:white;
+
+    font-size:9px;
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.scanHint{
+    color:#7d8798;
+    font-size:10px;
+    line-height:1.5;
+}
+
+.fixedPrice{
+    margin-top:13px;
+
+    font-size:29px;
+    font-weight:900;
+
+    color:var(--gold);
+}
+
+
+/* =====================================================
+   PAYMENT FORM
+===================================================== */
+
+.paymentForm{
+    margin-top:13px;
+
+    padding:18px;
+
+    border-radius:22px;
+
+    background:#10151f;
+    border:1px solid var(--border);
+}
+
+.formInfo{
+    padding:11px 12px;
+
+    border-radius:13px;
+
+    background:#0b1018;
+
+    color:#8e99aa;
+
+    font-size:10px;
+    line-height:1.5;
+
+    margin-bottom:17px;
+}
+
+.paymentLabel{
+    display:block;
+
+    margin:0 0 8px 2px;
+
+    color:#aeb7c5;
+
+    font-size:11px;
+    font-weight:900;
+}
+
+.paymentInput{
+    width:100%;
+    height:53px;
+
+    padding:0 15px;
+
+    border:1px solid var(--border);
+    border-radius:15px;
+
+    outline:none;
+
+    background:#0b1018;
+    color:white;
+
+    font-size:15px;
+    font-weight:700;
+}
+
+.paymentInput:focus{
+    border-color:
+        rgba(255,212,71,.55);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(255,212,71,.06);
+}
+
+
+/* =====================================================
+   UPLOAD
+===================================================== */
+
+.uploadBox{
+    margin-top:15px;
+
+    min-height:145px;
+
+    border-radius:20px;
+
+    border:
+        1.5px dashed
+        rgba(255,212,71,.30);
+
+    background:
+        rgba(255,212,71,.035);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:18px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.uploadBox:active{
+    transform:scale(.985);
+}
+
+.uploadIcon{
+    width:53px;
+    height:53px;
+
+    margin:auto;
+
+    border-radius:17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+
+    background:
+        rgba(255,212,71,.10);
+
+    color:var(--gold);
+}
+
+.uploadTitle{
+    margin-top:10px;
+
+    font-size:13px;
+    font-weight:900;
+}
+
+.uploadSub{
+    margin-top:5px;
+
+    font-size:10px;
+    color:#737e90;
+}
+
+#screenshotInput{
+    display:none;
+}
+
+
+/* =====================================================
+   UPLOAD PROGRESS
+===================================================== */
+
+#uploadProgress{
+    display:none;
+
+    margin-top:13px;
+
+    padding:14px;
+
+    border-radius:17px;
+
+    background:#0b1018;
+
+    border:1px solid var(--border);
+}
+
+.progressTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    font-size:11px;
+    font-weight:900;
+}
+
+.progressPercent{
+    color:var(--gold);
+    font-size:15px;
+}
+
+.progressBar{
+    width:100%;
+    height:7px;
+
+    margin-top:10px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#202733;
+}
+
+.progressFill{
+    width:0%;
+    height:100%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffb400,
+            #ffe17a
+        );
+
+    transition:.15s;
+}
+
+.progressStats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+
+    margin-top:11px;
+}
+
+.progressStat{
+    padding:9px 5px;
+
+    border-radius:10px;
+
+    background:#121823;
+
+    text-align:center;
+}
+
+.progressStat b{
+    display:block;
+    font-size:11px;
+}
+
+.progressStat span{
+    display:block;
+
+    margin-top:3px;
+
+    color:#707b8c;
+
+    font-size:8px;
+}
+
+.uploadStatus{
+    margin-top:10px;
+
+    color:#7f8a9c;
+
+    font-size:10px;
+    text-align:center;
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+.submitBtn{
+    width:100%;
+    height:55px;
+
+    margin-top:15px;
+
+    border:0;
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe68a,
+            #ffd447,
+            #ffb000
+        );
+
+    color:#15120a;
+
+    font-size:14px;
+    font-weight:900;
+}
+
+.submitBtn:disabled{
+    opacity:.45;
+}
+
+
+/* =====================================================
+   FINAL RESULT
+===================================================== */
+
+.resultBox{
+    display:none;
+
+    margin-top:14px;
+
+    padding:19px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    background:#10151f;
+
+    border:1px solid var(--border);
+}
+
+.resultIcon{
+    font-size:42px;
+}
+
+.resultTitle{
+    margin-top:9px;
+
+    font-size:19px;
+    font-weight:900;
+}
+
+.resultText{
+    margin-top:7px;
+
+    color:#8c97a8;
+
+    font-size:11px;
+    line-height:1.55;
+}
+
+.resultKey{
+    margin-top:14px;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    background:
+        rgba(50,213,131,.08);
+
+    border:
+        1px solid
+        rgba(50,213,131,.20);
+
+    color:#62e59b;
+
+    font-size:17px;
+    font-weight:900;
+
+    word-break:break-all;
+}
+
+
+/* =====================================================
+   QR FULLSCREEN
+===================================================== */
+
+#qrViewer{
+    position:fixed;
+    inset:0;
+
+    z-index:100000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,0,0,.93);
+}
+
+.qrViewerClose{
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    width:44px;
+    height:44px;
+
+    border:0;
+    border-radius:14px;
+
+    background:#191f2a;
+    color:white;
+
+    font-size:22px;
+}
+
+.qrLarge{
+    width:min(90vw,440px);
+    aspect-ratio:1;
+
+    padding:12px;
+
+    border-radius:24px;
+
+    background:white;
+}
+
+.qrLarge img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:12px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+#toast{
+    position:fixed;
+
+    left:50%;
+    bottom:22px;
+
+    z-index:100001;
+
+    transform:
+        translate(-50%,20px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    max-width:90%;
+
+    padding:12px 16px;
+
+    border-radius:14px;
+
+    background:#171e29;
+
+    border:1px solid var(--border);
+
+    color:#fff;
+
+    font-size:11px;
+    font-weight:800;
+
+    transition:.25s;
+}
+
+#toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:370px){
+
+    .heroTitle{
+        font-size:28px;
+    }
+
+    .price{
+        font-size:29px;
+    }
+
+    .getBtn{
+        padding:12px 14px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<div id="openingScreen">
+
+    <div class="openLogo">
+        🔑
+    </div>
+
+    <div class="openTitle">
+        HRRY KEY
+    </div>
+
+    <div class="openSub">
+        Secure access system
+    </div>
+
+    <div class="loaderLine">
+        <span></span>
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MANDATORY LOGIN
+===================================================== -->
+
+<div id="loginOverlay">
+
+    <div class="loginCard">
+
+        <div class="loginIcon">
+            👤
+        </div>
+
+        <div class="loginTitle">
+            Enter Your Details
+        </div>
+
+        <div class="loginSub">
+            First enter your name and WhatsApp
+            number to continue to HRRY KEY.
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                STUDENT NAME
+            </label>
+
+            <input
+                id="loginName"
+                class="input"
+                type="text"
+                autocomplete="name"
+                placeholder="Enter your name"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                WHATSAPP NUMBER
+            </label>
+
+            <input
+                id="loginWhatsapp"
+                class="input"
+                type="tel"
+                inputmode="numeric"
+                autocomplete="tel"
+                maxlength="15"
+                placeholder="Enter WhatsApp number"
+            >
+
+        </div>
+
+
+        <button
+            class="primaryBtn"
+            onclick="saveProfile()"
+        >
+            CONTINUE →
+        </button>
+
+        <div class="loginNote">
+            Your details are saved on this device.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN APP
+===================================================== -->
+
+<div id="app">
+
+    <header class="header">
+
+        <div class="headerInner">
+
+            <div class="brand">
+
+                <div class="brandIcon">
+                    🔑
+                </div>
+
+                <div>
+
+                    <div class="brandName">
+                        HRRY KEY
+                    </div>
+
+                    <div class="brandSub">
+                        Secure access
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="profileMini"
+                class="profileMini"
+            >
+                Student
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="heroBadge">
+                PREMIUM ACCESS
+            </div>
+
+            <div class="heroTitle">
+                Get Your
+                <span>KEY</span>
+                Now
+            </div>
+
+            <div class="heroText">
+                Unlock premium study content with
+                one simple key. Complete payment
+                and submit your transaction details.
+            </div>
+
+
+            <div class="priceBox">
+
+                <div>
+
+                    <div class="price">
+                        ₹20
+                    </div>
+
+                    <div class="priceSmall">
+                        ONE TIME ACCESS
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="getKeyButton"
+                    class="getBtn"
+                    onclick="openPayment()"
+                >
+                    GET KEY →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="features">
+
+            <div class="feature">
+
+                <div class="featureIcon">
+                    📚
+                </div>
+
+                <div class="featureTitle">
+                    MASTER CLASS
+                </div>
+
+                <div class="featureSub">
+                    Premium Content
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="featureIcon">
+                    🔟
+                </div>
+
+                <div class="featureTitle">
+                    CLASS 10th
+                </div>
+
+                <div class="featureSub">
+                    MCQ Access
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="featureIcon">
+                    🎓
+                </div>
+
+                <div class="featureTitle">
+                    CLASS 12th
+                </div>
+
+                <div class="featureSub">
+                    MCQ Access
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATUS -->
+
+        <section
+            id="statusCard"
+            class="statusCard"
+        >
+
+            <div class="statusTop">
+
+                <div>
+
+                    <div class="statusLabel">
+                        CURRENT REQUEST
+                    </div>
+
+                    <div
+                        id="statusValue"
+                        class="statusValue"
+                    >
+                        Checking...
+                    </div>
+
+                </div>
+
+                <div
+                    id="statusDot"
+                    class="statusDot"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="statusMessage"
+                class="statusMessage"
+            >
+                Checking your request...
+            </div>
+
+
+            <div
+                id="homeKeyBox"
+                class="keyBox"
+            >
+
+                <div class="keyLabel">
+                    YOUR GENERATED KEY
+                </div>
+
+                <div
+                    id="homeKey"
+                    class="keyValue"
+                ></div>
+
+                <button
+                    class="copyKey"
+                    onclick="copyHomeKey()"
+                >
+                    COPY KEY
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- REQUEST HISTORY -->
+        <section id="historyCard" class="historyCard">
+            <div class="historyHead">
+                <div class="historyTitle">REQUEST HISTORY</div>
+                <div id="historyCount" class="historyCount">0 REQUESTS</div>
+            </div>
+            <div id="historyList" class="historyList">
+                <div class="historyEmpty">No request history yet.</div>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     PAYMENT PAGE
+==================================================== -->
+
+<div id="paymentModal">
+
+    <div class="paymentPage">
+
+        <div class="paymentHeader">
+
+            <button
+                class="backBtn"
+                onclick="closePayment()"
+            >
+                ←
+            </button>
+
+            <div>
+
+                <div class="paymentHeading">
+                    Get Your Key
+                </div>
+
+                <div class="paymentSub">
+                    Complete payment securely
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QR -->
+
+        <section class="qrCard">
+
+            <div class="receiverBadge">
+                PHONEPE PAYMENT
+            </div>
+
+            <div class="receiverName">
+                Archana Kumar
+            </div>
+
+
+            <div
+                class="qrWrap"
+                onclick="openQR()"
+            >
+
+                <img
+                    id="qrImage"
+                    src="https://i.ibb.co/7xKGZjjn/IMG-20260909-WA0024-1.jpg"
+                    alt="PhonePe QR"
+                >
+
+                <div class="qrTap">
+                    TAP TO ENLARGE QR
+                </div>
+
+            </div>
+
+
+            <div class="scanHint">
+                Scan this QR using PhonePe and
+                complete the payment.
+            </div>
+
+            <div class="fixedPrice">
+                ₹20 ONLY
+            </div>
+
+        </section>
+
+
+        <!-- PAYMENT FORM -->
+
+        <section class="paymentForm">
+
+            <div class="formInfo">
+                After making the ₹20 payment,
+                enter your UTR / Transaction ID
+                and upload the payment screenshot.
+            </div>
+
+
+            <label class="paymentLabel">
+                UTR / TRANSACTION ID
+            </label>
+
+            <input
+                id="utrInput"
+                class="paymentInput"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Enter your UTR ID"
+            >
+
+
+            <label
+                class="paymentLabel"
+                style="margin-top:16px"
+            >
+                PAYMENT SCREENSHOT
+            </label>
+
+
+            <label
+                class="uploadBox"
+                for="screenshotInput"
+            >
+
+                <div>
+
+                    <div class="uploadPreview" id="uploadPreview">
+                        <img id="uploadPreviewImage" alt="Uploaded screenshot preview">
+                    </div>
+
+                    <div class="uploadIcon">
+                        📸
+                    </div>
+
+                    <div
+                        id="uploadTitle"
+                        class="uploadTitle"
+                    >
+                        Upload Your Screenshot
+                    </div>
+
+                    <div
+                        id="uploadSub"
+                        class="uploadSub"
+                    >
+                        JPG / PNG / WEBP • Maximum 5 MB
+                    </div>
+
+                </div>
+
+            </label>
+
+
+            <input
+                id="screenshotInput"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+            >
+
+
+            <!-- PROGRESS -->
+
+            <div
+                id="uploadProgress"
+            >
+
+                <div class="progressTop">
+
+                    <span>
+                        Uploading Screenshot
+                    </span>
+
+                    <span
+                        id="progressPercent"
+                        class="progressPercent"
+                    >
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="progressBar">
+
+                    <div
+                        id="progressFill"
+                        class="progressFill"
+                    ></div>
+
+                </div>
+
+
+                <div class="progressStats">
+
+                    <div class="progressStat">
+
+                        <b id="uploadedMB">
+                            0 MB
+                        </b>
+
+                        <span>
+                            UPLOADED
+                        </span>
+
+                    </div>
+
+
+                    <div class="progressStat">
+
+                        <b id="totalMB">
+                            0 MB
+                        </b>
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="progressStat">
+
+                        <b id="uploadSpeed">
+                            0 MB/s
+                        </b>
+
+                        <span>
+                            SPEED
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="uploadStatus"
+                    class="uploadStatus"
+                >
+                    Preparing upload...
+                </div>
+
+            </div>
+
+
+            <button
+                id="submitBtn"
+                class="submitBtn"
+                onclick="submitPaymentRequest()"
+            >
+                SUBMIT PAYMENT REQUEST
+            </button>
+
+
+            <!-- RESULT -->
+
+            <div
+                id="resultBox"
+                class="resultBox"
+            >
+
+                <div
+                    id="resultIcon"
+                    class="resultIcon"
+                >
+                    ⏳
+                </div>
+
+                <div
+                    id="resultTitle"
+                    class="resultTitle"
+                >
+                    Request Submitted
+                </div>
+
+                <div
+                    id="resultText"
+                    class="resultText"
+                >
+                    Your payment request is under review.
+                </div>
+
+                <div
+                    id="resultKey"
+                    class="resultKey"
+                    style="display:none"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     REQUEST STATUS FULLSCREEN
+===================================================== -->
+<div id="requestStatusOverlay">
+    <div id="requestStatusCard" class="requestStatusCard pending">
+        <div id="requestStatusIcon" class="requestStatusIcon">⏳</div>
+        <div id="requestStatusTitle" class="requestStatusTitle">Request Submitted</div>
+        <div id="requestStatusText" class="requestStatusText">
+            Your request has been submitted and is waiting for admin review.
+        </div>
+        <div id="requestStatusBadge" class="requestStatusBadge">REQUESTED • PENDING</div>
+        <div id="requestStatusKey" class="requestStatusKey"></div>
+        <div class="requestStatusActions">
+            <button id="requestStatusPrimary" class="requestPrimary" onclick="handleStatusPrimary()">
+                CHECK REQUEST STATUS
+            </button>
+            <button class="requestSecondary" onclick="closeRequestStatusOverlay()">CLOSE</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     QR VIEWER
+===================================================== -->
+
+<div id="qrViewer">
+
+    <button
+        class="qrViewerClose"
+        onclick="closeQR()"
+    >
+        ×
+    </button>
+
+    <div class="qrLarge">
+
+        <img
+            src="https://i.ibb.co/7xKGZjjn/IMG-20260909-WA0024-1.jpg"
+            alt="PhonePe QR"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast">
+    Done
+</div>
+
+
+<script>
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+const SERVER_URL =
+    "https://telegram-bind-test.onrender.com";
+
+const PRICE =
+    20;
+
+const QR_URL =
+    "https://i.ibb.co/7xKGZjjn/IMG-20260909-WA0024-1.jpg";
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let profile = null;
+
+let selectedFile = null;
+
+let uploadId = null;
+
+let currentRequestId = null;
+
+let currentRequest = null;
+
+let statusTimer = null;
+
+let requestHistory = [];
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const openingScreen =
+    document.getElementById(
+        "openingScreen"
+    );
+
+const loginOverlay =
+    document.getElementById(
+        "loginOverlay"
+    );
+
+const app =
+    document.getElementById(
+        "app"
+    );
+
+const paymentModal =
+    document.getElementById(
+        "paymentModal"
+    );
+
+
+/* =====================================================
+   START APP
+===================================================== */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            startApplication,
+            900
+        );
+
+    }
+);
+
+
+function startApplication(){
+
+    openingScreen.style.opacity =
+        "0";
+
+    setTimeout(
+        () => {
+
+            openingScreen.style.display =
+                "none";
+
+
+            loadSavedProfile();
+
+        },
+        350
+    );
+}
+
+
+/* =====================================================
+   LOGIN / PROFILE
+===================================================== */
+
+function loadSavedProfile(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                "hrry_profile"
+            );
+
+        if(saved){
+
+            profile =
+                JSON.parse(
+                    saved
+                );
+
+            if(
+                profile.name &&
+                profile.whatsapp
+            ){
+
+                showApp();
+
+                return;
+            }
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
+
+
+    /*
+      No profile:
+      MAIN APP REMAINS HIDDEN.
+      LOGIN IS MANDATORY.
+    */
+
+    app.style.display =
+        "none";
+
+    loginOverlay.style.display =
+        "flex";
+}
+
+
+function saveProfile(){
+
+    const name =
+        document
+            .getElementById(
+                "loginName"
+            )
+            .value
+            .trim();
+
+
+    const whatsapp =
+        document
+            .getElementById(
+                "loginWhatsapp"
+            )
+            .value
+            .trim();
+
+
+    if(
+        !name
+    ){
+
+        toast(
+            "Please enter your name."
+        );
+
+        return;
+    }
+
+
+    const clean =
+        whatsapp.replace(
+            /\D/g,
+            ""
+        );
+
+
+    if(
+        clean.length !== 10
+    ){
+
+        toast(
+            "Please enter a valid WhatsApp number."
+        );
+
+        return;
+    }
+
+
+    profile = {
+
+        name,
+
+        whatsapp:
+
+            clean,
+
+        savedAt:
+            Date.now()
+    };
+
+
+    localStorage.setItem(
+        "hrry_profile",
+
+        JSON.stringify(
+            profile
+        )
+    );
+
+
+    showApp();
+}
+
+
+function showApp(){
+
+    loginOverlay.style.display =
+        "none";
+
+    app.style.display =
+        "block";
+
+
+    document.getElementById(
+        "profileMini"
+    ).textContent =
+        profile.name;
+
+
+    restoreRequest();
+
+}
+
+
+function refreshGetKeyButton(){
+
+    const button =
+        document.getElementById(
+            "getKeyButton"
+        );
+
+    if(!button){
+        return;
+    }
+
+    if(
+        currentRequest &&
+        currentRequest.status === "pending"
+    ){
+        button.textContent =
+            "REQUEST STATUS →";
+    }
+    else{
+        button.textContent =
+            "GET KEY →";
+    }
+}
+
+
+/* =====================================================
+   PAYMENT
+===================================================== */
+
+function openPayment(){
+
+    if(
+        currentRequest &&
+        currentRequest.status === "pending"
+    ){
+        showRequestStatusOverlay(currentRequest);
+        return;
+    }
+
+    paymentModal.style.display =
+        "block";
+
+    document.body.style.overflow =
+        "hidden";
+
+    resetPaymentForm();
+}
+
+
+function closePayment(){
+
+    paymentModal.style.display =
+        "none";
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =====================================================
+   RESET PAYMENT
+===================================================== */
+
+function resetPaymentForm(){
+
+    document.getElementById(
+        "utrInput"
+    ).value = "";
+
+    selectedFile = null;
+    uploadId = null;
+
+    document.getElementById(
+        "screenshotInput"
+    ).value = "";
+
+    const uploadBox =
+        document.querySelector(".uploadBox");
+
+    uploadBox.classList.remove("uploaded");
+
+    document.getElementById(
+        "uploadPreviewImage"
+    ).removeAttribute("src");
+
+    document.getElementById(
+        "uploadTitle"
+    ).textContent =
+        "Upload Your Screenshot";
+
+    document.getElementById(
+        "uploadSub"
+    ).textContent =
+        "JPG / PNG / WEBP • Maximum 5 MB";
+
+    document.getElementById(
+        "uploadProgress"
+    ).style.display =
+        "none";
+
+    document.getElementById(
+        "resultBox"
+    ).style.display =
+        "none";
+
+    const btn =
+        document.getElementById(
+            "submitBtn"
+        );
+
+    btn.disabled =
+        false;
+
+    btn.classList.remove("submitting");
+
+    btn.textContent =
+        "SUBMIT PAYMENT REQUEST";
+}
+
+
+/* =====================================================
+   FILE SELECT
+===================================================== */
+
+document
+    .getElementById(
+        "screenshotInput"
+    )
+    .addEventListener(
+        "change",
+        handleFileSelect
+    );
+
+
+function handleFileSelect(
+    event
+){
+
+    const file =
+        event.target.files[0];
+
+    if(!file){
+        return;
+    }
+
+    if(
+        file.size >
+        5 * 1024 * 1024
+    ){
+
+        toast(
+            "Screenshot must be 5 MB or smaller."
+        );
+
+        event.target.value =
+            "";
+
+        return;
+    }
+
+    const allowed = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+    if(
+        !allowed.includes(
+            file.type
+        )
+    ){
+
+        toast(
+            "Only JPG, PNG or WEBP is allowed."
+        );
+
+        event.target.value =
+            "";
+
+        return;
+    }
+
+    selectedFile =
+        file;
+
+    const preview =
+        document.getElementById(
+            "uploadPreviewImage"
+        );
+
+    preview.src =
+        URL.createObjectURL(file);
+
+    document.querySelector(
+        ".uploadBox"
+    ).classList.add("uploaded");
+
+    document.getElementById(
+        "uploadTitle"
+    ).textContent =
+        "SCREENSHOT UPLOADED ✓";
+
+    document.getElementById(
+        "uploadSub"
+    ).textContent =
+        formatMB(file.size) +
+        " • Ready to upload";
+
+    uploadScreenshot(
+        file
+    );
+}
+
+
+/* =====================================================
+   UPLOAD SCREENSHOT
+   XHR FOR REAL PROGRESS
+===================================================== */
+
+function uploadScreenshot(
+    file
+){
+
+    const progressBox =
+        document.getElementById(
+            "uploadProgress"
+        );
+
+    const fill =
+        document.getElementById(
+            "progressFill"
+        );
+
+    const percent =
+        document.getElementById(
+            "progressPercent"
+        );
+
+    const uploaded =
+        document.getElementById(
+            "uploadedMB"
+        );
+
+    const total =
+        document.getElementById(
+            "totalMB"
+        );
+
+    const speed =
+        document.getElementById(
+            "uploadSpeed"
+        );
+
+    const status =
+        document.getElementById(
+            "uploadStatus"
+        );
+
+
+    progressBox.style.display =
+        "block";
+
+
+    total.textContent =
+        formatMB(file.size);
+
+
+    fill.style.width =
+        "0%";
+
+    percent.textContent =
+        "0%";
+
+    uploaded.textContent =
+        "0 MB";
+
+    speed.textContent =
+        "0 MB/s";
+
+    status.textContent =
+        "Preparing upload...";
+
+
+    const xhr =
+        new XMLHttpRequest();
+
+
+    const form =
+        new FormData();
+
+
+    form.append(
+        "screenshot",
+        file
+    );
+
+
+    const startTime =
+        performance.now();
+
+
+    xhr.open(
+        "POST",
+        SERVER_URL +
+        "/api/upload-screenshot",
+        true
+    );
+
+
+    xhr.upload.onprogress =
+        function(event){
+
+            if(
+                !event.lengthComputable
+            ){
+                return;
+            }
+
+
+            const percentValue =
+                Math.round(
+                    (
+                        event.loaded /
+                        event.total
+                    ) * 100
+                );
+
+
+            const elapsed =
+                (
+                    performance.now() -
+                    startTime
+                ) / 1000;
+
+
+            const mb =
+                event.loaded /
+                1024 /
+                1024;
+
+
+            const total =
+                event.total /
+                1024 /
+                1024;
+
+
+            const mbps =
+                elapsed > 0
+                    ? mb / elapsed
+                    : 0;
+
+
+            fill.style.width =
+                percentValue +
+                "%";
+
+
+            percent.textContent =
+                percentValue +
+                "%";
+
+
+            uploaded.textContent =
+                mb.toFixed(2) +
+                " MB";
+
+
+            document.getElementById(
+                "totalMB"
+            ).textContent =
+                total.toFixed(2) +
+                " MB";
+
+
+            speed.textContent =
+                mbps.toFixed(2) +
+                " MB/s";
+
+
+            status.textContent =
+                percentValue < 100
+                    ? "Uploading screenshot..."
+                    : "Processing screenshot...";
+        };
+
+
+    xhr.onload =
+        function(){
+
+            try{
+
+                const data =
+                    JSON.parse(
+                        xhr.responseText
+                    );
+
+
+                if(
+                    xhr.status >= 200 &&
+                    xhr.status < 300 &&
+                    data.ok
+                ){
+
+                    uploadId =
+                        data.uploadId;
+
+
+                    fill.style.width =
+                        "100%";
+
+                    percent.textContent =
+                        "100%";
+
+
+                    uploaded.textContent =
+                        formatMB(
+                            file.size
+                        );
+
+
+                    status.textContent =
+                        "Screenshot uploaded successfully ✓";
+
+                    document.getElementById("uploadTitle").textContent =
+                        "SCREENSHOT UPLOADED ✓";
+
+                    document.getElementById("uploadSub").textContent =
+                        formatMB(file.size) + " • Uploaded successfully";
+
+
+                    toast(
+                        "Screenshot uploaded."
+                    );
+
+
+                }
+                else{
+
+                    uploadId =
+                        null;
+
+
+                    status.textContent =
+                        data.error ||
+                        "Upload failed.";
+
+                    toast(
+                        data.error ||
+                        "Upload failed."
+                    );
+
+                }
+
+            }
+            catch(error){
+
+                uploadId =
+                    null;
+
+                status.textContent =
+                    "Server response error.";
+
+                toast(
+                    "Upload failed."
+                );
+            }
+
+        };
+
+
+    xhr.onerror =
+        function(){
+
+            uploadId =
+                null;
+
+            status.textContent =
+                "Network error. Please try again.";
+
+            toast(
+                "Network error."
+            );
+
+        };
+
+
+    xhr.ontimeout =
+        function(){
+
+            uploadId =
+                null;
+
+            status.textContent =
+                "Upload timed out.";
+
+            toast(
+                "Upload timed out."
+            );
+
+        };
+
+
+    xhr.timeout =
+        120000;
+
+
+    xhr.send(
+        form
+    );
+}
+
+
+/* =====================================================
+   SUBMIT PAYMENT REQUEST
+===================================================== */
+
+async function submitPaymentRequest(){
+
+    if(
+        currentRequest &&
+        currentRequest.status === "pending"
+    ){
+        showRequestStatusOverlay(currentRequest);
+        return;
+    }
+
+    const utr =
+        document
+            .getElementById(
+                "utrInput"
+            )
+            .value
+            .trim();
+
+    if(
+        !profile ||
+        !profile.name ||
+        !profile.whatsapp
+    ){
+
+        toast(
+            "Please complete your profile first."
+        );
+
+        return;
+    }
+
+    if(
+        !utr
+    ){
+
+        toast(
+            "Please enter your UTR / Transaction ID."
+        );
+
+        document
+            .getElementById(
+                "utrInput"
+            )
+            .focus();
+
+        return;
+    }
+
+    if(
+        !uploadId
+    ){
+
+        toast(
+            "Please upload the payment screenshot."
+        );
+
+        return;
+    }
+
+    const btn =
+        document.getElementById(
+            "submitBtn"
+        );
+
+    btn.disabled =
+        true;
+
+    btn.classList.add("submitting");
+
+    btn.textContent =
+        "SUBMITTING REQUEST...";
+
+    try{
+
+        const response =
+            await fetch(
+                SERVER_URL +
+                "/api/key-request",
+                {
+                    method:
+                        "POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            name:
+                                profile.name,
+
+                            whatsapp:
+                                profile.whatsapp,
+
+                            utr:
+                                utr,
+
+                            amount:
+                                PRICE,
+
+                            deviceId:
+                                getDeviceId(),
+
+                            telegramFileId:
+                                uploadId
+                        })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if(
+            !response.ok ||
+            !data.ok
+        ){
+
+            throw new Error(
+                data.error ||
+                "Request submission failed."
+            );
+        }
+
+        currentRequestId =
+            data.requestId;
+
+        localStorage.setItem(
+            "hrry_request_id",
+            currentRequestId
+        );
+
+        currentRequest = {
+            status:"pending",
+            requestId:currentRequestId,
+            utr:utr,
+            createdAt:Date.now()
+        };
+
+        saveHistoryItem(currentRequest);
+
+        showSubmittedState();
+
+        startStatusPolling();
+
+        closePayment();
+
+        showRequestStatusOverlay(currentRequest);
+
+    }
+    catch(error){
+
+        console.error(
+            error
+        );
+
+        toast(
+            error.message ||
+            "Request failed."
+        );
+
+        btn.disabled =
+            false;
+
+        btn.classList.remove("submitting");
+
+        btn.textContent =
+            "SUBMIT PAYMENT REQUEST";
+    }
+}
+
+
+/* =====================================================
+   SUBMITTED STATE
+===================================================== */
+
+function showSubmittedState(){
+
+    const result =
+        document.getElementById(
+            "resultBox"
+        );
+
+    const icon =
+        document.getElementById(
+            "resultIcon"
+        );
+
+    const title =
+        document.getElementById(
+            "resultTitle"
+        );
+
+    const text =
+        document.getElementById(
+            "resultText"
+        );
+
+    result.style.display =
+        "block";
+
+    icon.textContent =
+        "⏳";
+
+    title.textContent =
+        "REQUEST SUBMITTED";
+
+    text.textContent =
+        "Your request is submitted successfully. Admin is reviewing your payment.";
+
+    document.getElementById(
+        "submitBtn"
+    ).style.display =
+        "none";
+}
+
+
+/* =====================================================
+   STATUS POLLING
+===================================================== */
+
+function startStatusPolling(){
+
+    if(
+        statusTimer
+    ){
+
+        clearInterval(
+            statusTimer
+        );
+    }
+
+
+    checkRequestStatus();
+
+
+    statusTimer =
+        setInterval(
+            checkRequestStatus,
+            7000
+        );
+}
+
+
+async function checkRequestStatus(){
+
+    if(
+        !currentRequestId
+    ){
+
+        return;
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                SERVER_URL +
+                "/api/key-request/" +
+                encodeURIComponent(
+                    currentRequestId
+                ),
+                {
+                    cache:
+                        "no-store"
+                }
+            );
+
+
+        if(
+            !response.ok
+        ){
+            return;
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if(
+            !data.ok ||
+            !data.request
+        ){
+            return;
+        }
+
+
+        const request =
+            data.request;
+
+        currentRequest =
+            request;
+
+        if(
+            !request.requestId &&
+            currentRequestId
+        ){
+            request.requestId =
+                currentRequestId;
+        }
+
+        saveHistoryItem(
+            request
+        );
+
+        updateRequestUI(
+            request
+        );
+
+
+        if(
+            request.status ===
+                "accepted" ||
+            request.status ===
+                "rejected"
+        ){
+
+            showRequestStatusOverlay(
+                request
+            );
+
+            if(
+                statusTimer
+            ){
+
+                clearInterval(
+                    statusTimer
+                );
+
+                statusTimer =
+                    null;
+            }
+        }
+
+
+    }
+    catch(error){
+
+        console.log(
+            "Status check:",
+            error.message
+        );
+
+    }
+}
+
+
+/* =====================================================
+   UPDATE REQUEST UI
+===================================================== */
+
+function updateRequestUI(
+    request
+){
+
+    currentRequest =
+        request;
+
+    refreshGetKeyButton();
+
+    const result =
+        document.getElementById(
+            "resultBox"
+        );
+
+    const icon =
+        document.getElementById(
+            "resultIcon"
+        );
+
+    const title =
+        document.getElementById(
+            "resultTitle"
+        );
+
+    const text =
+        document.getElementById(
+            "resultText"
+        );
+
+    const resultKey =
+        document.getElementById(
+            "resultKey"
+        );
+
+    result.style.display =
+        "block";
+
+    saveHistoryItem(request);
+    updateHistoryUI();
+
+    if(
+        request.status ===
+        "pending"
+    ){
+
+        icon.textContent =
+            "⏳";
+
+        title.textContent =
+            "REQUESTED • PENDING";
+
+        text.textContent =
+            "Your request is submitted and waiting for admin review. You cannot create another request while this request is pending.";
+
+        resultKey.style.display =
+            "none";
+
+        updateHomeStatus(
+            request
+        );
+
+        return;
+    }
+
+    if(
+        request.status ===
+        "accepted"
+    ){
+
+        icon.textContent =
+            "✅";
+
+        title.textContent =
+            "ACCEPTED • KEY GENERATED";
+
+        text.textContent =
+            "Admin accepted your request. Your generated key is ready below.";
+
+        resultKey.style.display =
+            "block";
+
+        resultKey.textContent =
+            request.key ||
+            "Key unavailable";
+
+        localStorage.setItem(
+            "hrry_active_key",
+            request.key || ""
+        );
+
+        updateHomeStatus(
+            request
+        );
+
+        return;
+    }
+
+    if(
+        request.status ===
+        "rejected"
+    ){
+
+        icon.textContent =
+            "❌";
+
+        title.textContent =
+            "IGNORED / REJECTED REQUEST";
+
+        text.textContent =
+            "This request was rejected by admin. You can now create a new key request.";
+
+        resultKey.style.display =
+            "none";
+
+        updateHomeStatus(
+            request
+        );
+    }
+}
+
+
+function updateHomeStatus(
+    request
+){
+
+    const card =
+        document.getElementById(
+            "statusCard"
+        );
+
+    const value =
+        document.getElementById(
+            "statusValue"
+        );
+
+    const message =
+        document.getElementById(
+            "statusMessage"
+        );
+
+    const dot =
+        document.getElementById(
+            "statusDot"
+        );
+
+    const keyBox =
+        document.getElementById(
+            "homeKeyBox"
+        );
+
+    const key =
+        document.getElementById(
+            "homeKey"
+        );
+
+    card.style.display =
+        "block";
+
+    card.classList.remove(
+        "pendingState",
+        "acceptedState",
+        "rejectedState"
+    );
+
+    if(
+        request.status ===
+        "pending"
+    ){
+
+        card.classList.add("pendingState");
+
+        value.textContent =
+            "REQUESTED • PENDING";
+
+        message.textContent =
+            "Request submitted. Waiting for admin review. GET KEY is locked until this request is completed.";
+
+        dot.style.color =
+            "#ffd447";
+
+        keyBox.style.display =
+            "none";
+
+        return;
+    }
+
+    if(
+        request.status ===
+        "accepted"
+    ){
+
+        card.classList.add("acceptedState");
+
+        value.textContent =
+            "ACCEPTED • GENERATED";
+
+        message.textContent =
+            "Admin accepted the request. Your key is generated. You can create a new request from GET KEY if needed.";
+
+        dot.style.color =
+            "#32d583";
+
+        keyBox.style.display =
+            "block";
+
+        key.textContent =
+            request.key ||
+            "";
+
+        return;
+    }
+
+    if(
+        request.status ===
+        "rejected"
+    ){
+
+        card.classList.add("rejectedState");
+
+        value.textContent =
+            "IGNORED / REJECTED";
+
+        message.textContent =
+            "Admin rejected this request. A new key request is now available.";
+
+        dot.style.color =
+            "#ff4d67";
+
+        keyBox.style.display =
+            "none";
+    }
+}
+
+
+/* =====================================================
+   REQUEST STATUS FULLSCREEN
+===================================================== */
+
+function showRequestStatusOverlay(
+    request
+){
+
+    const overlay =
+        document.getElementById(
+            "requestStatusOverlay"
+        );
+
+    const card =
+        document.getElementById(
+            "requestStatusCard"
+        );
+
+    const icon =
+        document.getElementById(
+            "requestStatusIcon"
+        );
+
+    const title =
+        document.getElementById(
+            "requestStatusTitle"
+        );
+
+    const text =
+        document.getElementById(
+            "requestStatusText"
+        );
+
+    const badge =
+        document.getElementById(
+            "requestStatusBadge"
+        );
+
+    const key =
+        document.getElementById(
+            "requestStatusKey"
+        );
+
+    const primary =
+        document.getElementById(
+            "requestStatusPrimary"
+        );
+
+    card.className =
+        "requestStatusCard " +
+        (
+            request.status ||
+            "pending"
+        );
+
+    overlay.style.display =
+        "flex";
+
+    document.body.style.overflow =
+        "hidden";
+
+    key.style.display =
+        "none";
+
+    if(
+        request.status ===
+        "pending"
+    ){
+
+        icon.textContent =
+            "⏳";
+
+        title.textContent =
+            "REQUEST SUBMITTED";
+
+        text.textContent =
+            "Your request is already submitted. Please wait for admin review. You cannot submit another request while it is pending.";
+
+        badge.textContent =
+            "REQUESTED • PENDING";
+
+        primary.textContent =
+            "CHECK REQUEST STATUS";
+
+        primary.onclick =
+            function(){
+                checkRequestStatus();
+            };
+
+        return;
+    }
+
+    if(
+        request.status ===
+        "accepted"
+    ){
+
+        icon.textContent =
+            "✅";
+
+        title.textContent =
+            "REQUEST ACCEPTED";
+
+        text.textContent =
+            "Your request was accepted by admin and your key has been generated.";
+
+        badge.textContent =
+            "ACCEPTED • GENERATED";
+
+        if(request.key){
+            key.style.display =
+                "block";
+            key.textContent =
+                request.key;
+        }
+
+        primary.textContent =
+            "GET NEW KEY REQUEST";
+
+        primary.onclick =
+            function(){
+                closeRequestStatusOverlay();
+                openPaymentFormForNewRequest();
+            };
+
+        return;
+    }
+
+    if(
+        request.status ===
+        "rejected"
+    ){
+
+        icon.textContent =
+            "❌";
+
+        title.textContent =
+            "REQUEST REJECTED";
+
+        text.textContent =
+            "Admin rejected this request. You can now create a new request.";
+
+        badge.textContent =
+            "IGNORED / REJECTED";
+
+        primary.textContent =
+            "CREATE NEW KEY REQUEST";
+
+        primary.onclick =
+            function(){
+                closeRequestStatusOverlay();
+                openPaymentFormForNewRequest();
+            };
+    }
+}
+
+
+function closeRequestStatusOverlay(){
+
+    document.getElementById(
+        "requestStatusOverlay"
+    ).style.display =
+        "none";
+
+    if(
+        paymentModal.style.display !==
+        "block"
+    ){
+        document.body.style.overflow =
+            "";
+    }
+}
+
+
+function handleStatusPrimary(){
+    checkRequestStatus();
+}
+
+
+function openPaymentFormForNewRequest(){
+
+    paymentModal.style.display =
+        "block";
+
+    document.body.style.overflow =
+        "hidden";
+
+    resetPaymentForm();
+}
+
+
+/* =====================================================
+   RESTORE PREVIOUS REQUEST
+===================================================== */
+
+function restoreRequest(){
+
+    currentRequestId =
+        localStorage.getItem(
+            "hrry_request_id"
+        );
+
+    loadHistory();
+
+    if(
+        currentRequestId
+    ){
+
+        startStatusPolling();
+    }
+    else{
+        updateHistoryUI();
+        refreshGetKeyButton();
+    }
+}
+
+
+
+/* =====================================================
+   LOCAL REQUEST HISTORY
+===================================================== */
+
+function loadHistory(){
+
+    try{
+        requestHistory =
+            JSON.parse(
+                localStorage.getItem(
+                    "hrry_request_history"
+                ) || "[]"
+            );
+
+        if(!Array.isArray(requestHistory)){
+            requestHistory = [];
+        }
+    }
+    catch{
+        requestHistory = [];
+    }
+
+    updateHistoryUI();
+}
+
+
+function saveHistoryItem(
+    request
+){
+
+    if(
+        !request
+    ){
+        return;
+    }
+
+    const id =
+        request.requestId ||
+        request.id ||
+        currentRequestId;
+
+    if(!id){
+        return;
+    }
+
+    const item = {
+        id:id,
+        status:request.status || "pending",
+        key:request.key || "",
+        utr:request.utr || "",
+        createdAt:
+            request.createdAt ||
+            request.created_at ||
+            Date.now(),
+        updatedAt:
+            request.updatedAt ||
+            request.updated_at ||
+            Date.now()
+    };
+
+    const index =
+        requestHistory.findIndex(
+            x => x.id === id
+        );
+
+    if(index >= 0){
+        requestHistory[index] = {
+            ...requestHistory[index],
+            ...item
+        };
+    }
+    else{
+        requestHistory.unshift(item);
+    }
+
+    requestHistory =
+        requestHistory
+            .slice(0,20);
+
+    localStorage.setItem(
+        "hrry_request_history",
+        JSON.stringify(
+            requestHistory
+        )
+    );
+
+    updateHistoryUI();
+}
+
+
+function updateHistoryUI(){
+
+    const list =
+        document.getElementById(
+            "historyList"
+        );
+
+    const count =
+        document.getElementById(
+            "historyCount"
+        );
+
+    if(
+        !list ||
+        !count
+    ){
+        return;
+    }
+
+    count.textContent =
+        requestHistory.length +
+        (
+            requestHistory.length === 1
+                ? " REQUEST"
+                : " REQUESTS"
+        );
+
+    if(
+        !requestHistory.length
+    ){
+
+        list.innerHTML =
+            '<div class="historyEmpty">No request history yet.</div>';
+
+        return;
+    }
+
+    list.innerHTML =
+        requestHistory
+            .map(
+                item => {
+
+                    const status =
+                        item.status === "accepted"
+                            ? "ACCEPTED • GENERATED"
+                            : item.status === "rejected"
+                                ? "IGNORED / REJECTED"
+                                : "REQUESTED • PENDING";
+
+                    const cls =
+                        item.status === "accepted"
+                            ? "historyAccepted"
+                            : item.status === "rejected"
+                                ? "historyRejected"
+                                : "historyPending";
+
+                    const date =
+                        formatHistoryDate(
+                            item.updatedAt ||
+                            item.createdAt
+                        );
+
+                    const idText =
+                        item.id
+                            ? "Request ID: " +
+                              String(item.id).slice(0,16)
+                            : "";
+
+                    return `
+                        <div class="historyItem">
+                            <div class="historyRow">
+                                <div class="historyStatus ${cls}">
+                                    ${status}
+                                </div>
+                                <div class="historyMeta">
+                                    ${date}
+                                </div>
+                            </div>
+                            <div class="historyMeta">
+                                ${idText}
+                            </div>
+                        </div>
+                    `;
+                }
+            )
+            .join("");
+}
+
+
+function formatHistoryDate(
+    value
+){
+
+    if(!value){
+        return "";
+    }
+
+    const date =
+        new Date(value);
+
+    if(
+        Number.isNaN(
+            date.getTime()
+        )
+    ){
+        return "";
+    }
+
+    return date.toLocaleString(
+        undefined,
+        {
+            day:"2-digit",
+            month:"short",
+            year:"numeric",
+            hour:"2-digit",
+            minute:"2-digit"
+        }
+    );
+}
+
+
+/* =====================================================
+   DEVICE ID
+===================================================== */
+
+function getDeviceId(){
+
+    let id =
+        localStorage.getItem(
+            "hrry_device_id"
+        );
+
+
+    if(
+        !id
+    ){
+
+        id =
+            "DEV-" +
+            cryptoRandom();
+
+
+        localStorage.setItem(
+            "hrry_device_id",
+            id
+        );
+    }
+
+
+    return id;
+}
+
+
+function cryptoRandom(){
+
+    if(
+        window.crypto &&
+        crypto.randomUUID
+    ){
+
+        return crypto.randomUUID();
+    }
+
+
+    return (
+        Date.now() +
+        "-" +
+        Math.random()
+            .toString(36)
+            .slice(2)
+    );
+}
+
+
+/* =====================================================
+   COPY KEY
+===================================================== */
+
+async function copyHomeKey(){
+
+    const key =
+        document
+            .getElementById(
+                "homeKey"
+            )
+            .textContent
+            .trim();
+
+
+    if(
+        !key
+    ){
+        return;
+    }
+
+
+    try{
+
+        await navigator.clipboard.writeText(
+            key
+        );
+
+        toast(
+            "Key copied successfully."
+        );
+
+    }
+    catch{
+
+        toast(
+            "Copy failed."
+        );
+    }
+}
+
+
+/* =====================================================
+   QR
+===================================================== */
+
+function openQR(){
+
+    document.getElementById(
+        "qrViewer"
+    ).style.display =
+        "flex";
+}
+
+
+function closeQR(){
+
+    document.getElementById(
+        "qrViewer"
+    ).style.display =
+        "none";
+}
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function formatMB(
+    bytes
+){
+
+    return (
+        bytes /
+        1024 /
+        1024
+    ).toFixed(2) +
+    " MB";
+}
+
+
+let toastTimer = null;
+
+
+function toast(
+    message
+){
+
+    const el =
+        document.getElementById(
+            "toast"
+        );
+
+
+    el.textContent =
+        message;
+
+
+    el.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                el.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
+}
+
+
+/* =====================================================
+   BACK BUTTON / ESC
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            closeQR();
+
+            closeRequestStatusOverlay();
+
+            closePayment();
+        }
+
+    }
+);
+
+
+/* =====================================================
+   PREVENT LOGIN BYPASS
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        /*
+          Main app stays hidden until
+          profile verification.
+        */
+
+        app.style.display =
+            "none";
+
+        loadHistory();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
