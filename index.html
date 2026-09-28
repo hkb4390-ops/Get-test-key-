@@ -1375,6 +1375,87 @@ button{
 
 
 /* =====================================================
+   PREMIUM REQUEST UX ENHANCEMENTS
+===================================================== */
+.getBtn{
+    min-width:190px;
+    min-height:54px;
+    padding:16px 22px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,190,30,.18);
+    animation:getKeyPulse 2.2s ease-in-out infinite;
+    transition:transform .2s ease,box-shadow .2s ease;
+}
+.getBtn:active{transform:scale(.97)}
+.getBtn::after{
+    content:"";position:absolute;top:-40%;left:-70%;width:45%;height:180%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-20deg);animation:getKeyShine 3.5s ease-in-out infinite;
+}
+@keyframes getKeyPulse{0%,100%{box-shadow:0 10px 30px rgba(255,190,30,.16)}50%{box-shadow:0 12px 38px rgba(255,190,30,.32)}}
+@keyframes getKeyShine{0%{left:-70%}45%,100%{left:130%}}
+
+.statusCard.statusPending{border-color:rgba(255,212,71,.25)}
+.statusCard.statusAccepted{border-color:rgba(50,213,131,.28)}
+.statusCard.statusRejected{border-color:rgba(255,77,103,.30)}
+
+.requestHistory{margin-top:14px;padding:17px;border-radius:20px;background:#10151f;border:1px solid var(--border)}
+.historyHead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.historyTitle{font-size:12px;font-weight:900;letter-spacing:.6px}
+.historyCount{font-size:10px;color:#778296;font-weight:800}
+.historyList{margin-top:12px;display:grid;gap:9px}
+.historyItem{padding:13px;border-radius:15px;background:#0c1119;border:1px solid rgba(255,255,255,.06)}
+.historyRow{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.historyId{font-size:11px;font-weight:900;word-break:break-all}
+.historyTime{font-size:9px;color:#667184;white-space:nowrap}
+.historyMeta{margin-top:8px;display:grid;gap:4px;color:#7f8999;font-size:10px}
+.historyStatus{margin-top:9px;display:inline-flex;padding:6px 9px;border-radius:9px;font-size:9px;font-weight:900;letter-spacing:.3px}
+.historyStatus.pending{background:rgba(255,212,71,.10);color:#ffd447}
+.historyStatus.accepted{background:rgba(50,213,131,.10);color:#32d583}
+.historyStatus.rejected{background:rgba(255,77,103,.10);color:#ff4d67}
+.historyEmpty{padding:14px;border-radius:14px;background:#0c1119;color:#687386;font-size:11px;text-align:center}
+
+.uploadPreview{display:none;align-items:center;gap:12px;margin-top:12px;padding:10px;border-radius:15px;background:rgba(50,213,131,.06);border:1px solid rgba(50,213,131,.22)}
+.uploadPreview img{width:58px;height:58px;object-fit:cover;border-radius:11px;border:1px solid rgba(255,255,255,.10)}
+.uploadPreviewTitle{font-size:11px;font-weight:900;color:#fff;word-break:break-word}
+.uploadPreviewSub{margin-top:4px;font-size:10px;color:#32d583;font-weight:800}
+
+.submitBtn{width:100%;min-height:58px;font-size:14px!important;font-weight:900!important;letter-spacing:.2px;box-shadow:0 10px 28px rgba(255,212,71,.12);transition:transform .2s ease,opacity .2s ease}
+.submitBtn:active{transform:scale(.985)}
+
+#submitLoadingOverlay{position:fixed;inset:0;z-index:100050;display:none;align-items:center;justify-content:center;background:rgba(4,7,12,.72);backdrop-filter:blur(10px)}
+.submitLoaderCard{width:min(88%,360px);padding:30px 24px;border-radius:26px;text-align:center;background:linear-gradient(145deg,#171e2a,#0c1119);border:1px solid rgba(255,212,71,.18);box-shadow:0 24px 80px rgba(0,0,0,.45)}
+.spinnerRing{width:76px;height:76px;margin:0 auto 18px;border-radius:50%;border:7px solid rgba(255,212,71,.13);border-top-color:#ffd447;border-right-color:#ffb000;animation:spinRequest .75s linear infinite}
+@keyframes spinRequest{to{transform:rotate(360deg)}}
+.submitLoaderTitle{font-size:18px;font-weight:900}
+.submitLoaderText{margin-top:7px;color:#7f8999;font-size:11px;line-height:1.5}
+
+#requestStatusOverlay{position:fixed;inset:0;z-index:100040;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(3,5,9,.78);backdrop-filter:blur(13px)}
+.requestModal{width:min(92%,430px);padding:28px 22px;border-radius:28px;text-align:center;background:linear-gradient(145deg,#171e2a,#0c1119);border:1px solid rgba(255,255,255,.08);box-shadow:0 28px 100px rgba(0,0,0,.55);animation:modalIn .25s ease-out}
+@keyframes modalIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.requestModal.pending{border-color:rgba(255,212,71,.26)}
+.requestModal.accepted{border-color:rgba(50,213,131,.30)}
+.requestModal.rejected{border-color:rgba(255,77,103,.30)}
+.requestModalIcon{width:74px;height:74px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;font-size:32px;background:#111722;border:1px solid rgba(255,255,255,.08)}
+.requestModalTitle{font-size:22px;font-weight:900}
+.requestModalSub{margin-top:8px;color:#8c97a8;font-size:12px;line-height:1.55}
+.requestModalId{margin-top:15px;padding:11px;border-radius:12px;background:#0a0f16;color:#cbd3df;font-size:10px;font-weight:800;word-break:break-all}
+.requestModalStatus{margin-top:13px;font-size:12px;font-weight:900;letter-spacing:.5px}
+.requestModalKey{display:none;margin-top:16px;padding:15px;border-radius:16px;background:rgba(50,213,131,.07);border:1px solid rgba(50,213,131,.22)}
+.requestModalKeyLabel{font-size:9px;color:#74e5a8;font-weight:900}
+.requestModalKeyValue{margin-top:7px;font-size:20px;font-weight:900;letter-spacing:1px;word-break:break-all}
+.requestModalCopy{display:none;width:100%;min-height:52px;margin-top:12px;border:0;border-radius:14px;background:#32d583;color:#06140c;font-size:13px;font-weight:900}
+.requestModalClose{width:100%;min-height:48px;margin-top:15px;border-radius:13px;border:1px solid var(--border);background:#111722;color:#fff;font-weight:900}
+.requestModalNew{display:none;width:100%;min-height:52px;margin-top:15px;border:0;border-radius:14px;background:#ffd447;color:#141108;font-weight:900}
+
+.uploadBox.uploaded{border-color:rgba(50,213,131,.38)!important;background:rgba(50,213,131,.055)!important}
+.uploadBox.uploaded .uploadIcon{filter:saturate(1.2)}
+
+@media(max-width:370px){.getBtn{min-width:160px;padding:14px 15px}}
+
+/* =====================================================
    RESPONSIVE
 ===================================================== */
 
@@ -1556,7 +1637,7 @@ button{
 
                 <button
                     class="getBtn"
-                    onclick="openPayment()"
+                    onclick="handleGetKeyClick()"
                 >
                     GET KEY →
                 </button>
@@ -1688,6 +1769,16 @@ button{
 
         </section>
 
+        <section id="requestHistory" class="requestHistory">
+            <div class="historyHead">
+                <div class="historyTitle">REQUEST HISTORY</div>
+                <div id="historyCount" class="historyCount">0 REQUESTS</div>
+            </div>
+            <div id="historyList" class="historyList">
+                <div class="historyEmpty">No request history yet.</div>
+            </div>
+        </section>
+
     </main>
 
 </div>
@@ -1780,6 +1871,20 @@ button{
 
 
             <label class="paymentLabel">
+                WHATSAPP NUMBER
+            </label>
+
+            <input
+                id="whatsappInput"
+                class="paymentInput"
+                type="tel"
+                inputmode="numeric"
+                autocomplete="tel"
+                maxlength="10"
+                placeholder="Enter 10-digit WhatsApp number"
+            >
+
+            <label class="paymentLabel" style="margin-top:16px">
                 UTR / TRANSACTION ID
             </label>
 
@@ -1830,6 +1935,13 @@ button{
 
             </label>
 
+            <div id="uploadPreview" class="uploadPreview">
+                <img id="uploadPreviewImg" alt="Uploaded screenshot preview">
+                <div>
+                    <div id="uploadPreviewTitle" class="uploadPreviewTitle">Screenshot</div>
+                    <div id="uploadPreviewSub" class="uploadPreviewSub">✓ SCREENSHOT UPLOADED</div>
+                </div>
+            </div>
 
             <input
                 id="screenshotInput"
@@ -2002,6 +2114,31 @@ button{
 
 <!-- TOAST -->
 
+<div id="submitLoadingOverlay">
+    <div class="submitLoaderCard">
+        <div class="spinnerRing"></div>
+        <div class="submitLoaderTitle">Submitting Request</div>
+        <div class="submitLoaderText">Please wait while your payment request is securely submitted. Do not close the app.</div>
+    </div>
+</div>
+
+<div id="requestStatusOverlay">
+    <div id="requestModal" class="requestModal pending">
+        <div id="requestModalIcon" class="requestModalIcon">⏳</div>
+        <div id="requestModalTitle" class="requestModalTitle">REQUEST SUBMITTED</div>
+        <div id="requestModalSub" class="requestModalSub">Your request has been submitted and is waiting for admin verification.</div>
+        <div id="requestModalId" class="requestModalId">REQUEST ID</div>
+        <div id="requestModalStatus" class="requestModalStatus">UNDER REVIEW</div>
+        <div id="requestModalKey" class="requestModalKey">
+            <div class="requestModalKeyLabel">YOUR GENERATED KEY</div>
+            <div id="requestModalKeyValue" class="requestModalKeyValue"></div>
+        </div>
+        <button id="requestModalCopy" class="requestModalCopy" onclick="copyRequestModalKey()">COPY KEY</button>
+        <button id="requestModalNew" class="requestModalNew" onclick="startNewRequestFromModal()">GET NEW KEY</button>
+        <button id="requestModalClose" class="requestModalClose" onclick="closeRequestStatusOverlay()">CLOSE</button>
+    </div>
+</div>
+
 <div id="toast">
     Done
 </div>
@@ -2034,6 +2171,7 @@ let selectedFile = null;
 let uploadId = null;
 
 let currentRequestId = null;
+let lastKnownRequest = null;
 
 let statusTimer = null;
 
@@ -2587,13 +2725,39 @@ function showApp(){
 
 function openPayment(){
 
+    if(hasLockedActiveRequest()){
+        showRequestStatusOverlay(lastKnownRequest || {
+            status:"pending",
+            requestId:currentRequestId
+        });
+        return;
+    }
+
     paymentModal.style.display =
         "block";
 
     document.body.style.overflow =
         "hidden";
 
+    resetPaymentForm();
+}
 
+function handleGetKeyClick(){
+    if(hasLockedActiveRequest()){
+        showRequestStatusOverlay(lastKnownRequest || {status:"pending",requestId:currentRequestId});
+        return;
+    }
+    openPayment();
+}
+
+function hasLockedActiveRequest(){
+    const r = lastKnownRequest;
+    return !!(currentRequestId && r && (r.status === "pending" || r.status === "accepted"));
+}
+
+function openFreshPayment(){
+    paymentModal.style.display = "block";
+    document.body.style.overflow = "hidden";
     resetPaymentForm();
 }
 
@@ -2613,6 +2777,9 @@ function closePayment(){
 ===================================================== */
 
 function resetPaymentForm(){
+
+    const whatsappInput = document.getElementById("whatsappInput");
+    if(whatsappInput) whatsappInput.value = "";
 
     document.getElementById(
         "utrInput"
@@ -2640,6 +2807,13 @@ function resetPaymentForm(){
         "uploadProgress"
     ).style.display =
         "none";
+
+    const preview = document.getElementById("uploadPreview");
+    const previewImg = document.getElementById("uploadPreviewImg");
+    const uploadBox = document.querySelector(".uploadBox");
+    if(preview) preview.style.display = "none";
+    if(previewImg) previewImg.removeAttribute("src");
+    if(uploadBox) uploadBox.classList.remove("uploaded");
 
 
     document.getElementById(
@@ -2730,6 +2904,18 @@ function handleFileSelect(
     selectedFile =
         file;
 
+    const preview = document.getElementById("uploadPreview");
+    const previewImg = document.getElementById("uploadPreviewImg");
+    const previewTitle = document.getElementById("uploadPreviewTitle");
+    const previewSub = document.getElementById("uploadPreviewSub");
+    const uploadBox = document.querySelector(".uploadBox");
+    if(preview && previewImg){
+        previewImg.src = URL.createObjectURL(file);
+        previewTitle.textContent = file.name;
+        previewSub.textContent = "UPLOADING SCREENSHOT...";
+        preview.style.display = "flex";
+    }
+    if(uploadBox) uploadBox.classList.remove("uploaded");
 
     document.getElementById(
         "uploadTitle"
@@ -2959,7 +3145,10 @@ function uploadScreenshot(
 
                     status.textContent =
                         "Screenshot uploaded successfully ✓";
-
+                    const previewSub = document.getElementById("uploadPreviewSub");
+                    const uploadBox = document.querySelector(".uploadBox");
+                    if(previewSub) previewSub.textContent = "✓ SCREENSHOT UPLOADED";
+                    if(uploadBox) uploadBox.classList.add("uploaded");
 
                     toast(
                         "Screenshot uploaded."
@@ -3049,6 +3238,17 @@ function uploadScreenshot(
 
 async function submitPaymentRequest(){
 
+    if(hasLockedActiveRequest()){
+        closePayment();
+        showRequestStatusOverlay(lastKnownRequest);
+        return;
+    }
+
+    const whatsapp =
+        (document.getElementById("whatsappInput")?.value || "")
+            .replace(/\D/g, "")
+            .trim();
+
     const utr =
         document
             .getElementById(
@@ -3071,6 +3271,12 @@ async function submitPaymentRequest(){
         return;
     }
 
+
+    if(!/^\d{10}$/.test(whatsapp)){
+        toast("Invalid WhatsApp number. Enter exactly 10 digits.");
+        document.getElementById("whatsappInput")?.focus();
+        return;
+    }
 
     if(
         !utr
@@ -3113,6 +3319,11 @@ async function submitPaymentRequest(){
 
     btn.textContent =
         "SUBMITTING REQUEST...";
+    const loading = document.getElementById("submitLoadingOverlay");
+    if(loading){
+        loading.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
 
 
     try{
@@ -3137,7 +3348,13 @@ async function submitPaymentRequest(){
                                 profile.name,
 
                             whatsapp:
-                                profile.whatsapp || "",
+                                whatsapp,
+
+                            telegramUsername:
+                                profile.username || "",
+
+                            telegramId:
+                                profile.telegramId || "",
 
                             utr:
 
@@ -3192,8 +3409,23 @@ async function submitPaymentRequest(){
             currentRequestId
         );
 
+        lastKnownRequest = {
+            requestId: currentRequestId,
+            status: "pending",
+            utr: utr,
+            whatsapp: whatsapp,
+            amount: PRICE,
+            createdAt: Date.now()
+        };
+        saveRequestHistory(lastKnownRequest);
+        renderRequestHistory();
+
+        const loading = document.getElementById("submitLoadingOverlay");
+        if(loading) loading.style.display = "none";
 
         showSubmittedState();
+        closePayment();
+        showRequestStatusOverlay(lastKnownRequest);
 
 
         startStatusPolling();
@@ -3201,6 +3433,10 @@ async function submitPaymentRequest(){
 
     }
     catch(error){
+
+        const loading = document.getElementById("submitLoadingOverlay");
+        if(loading) loading.style.display = "none";
+        document.body.style.overflow = "";
 
         console.error(
             error
@@ -3257,7 +3493,7 @@ function showSubmittedState(){
 
 
     title.textContent =
-        "Request Submitted";
+        "REQUEST SUBMITTED";
 
 
     text.textContent =
@@ -3393,6 +3629,11 @@ function updateRequestUI(
     request
 ){
 
+    lastKnownRequest = { ...lastKnownRequest, ...request, requestId: request.requestId || request.id || currentRequestId };
+    saveRequestHistory(lastKnownRequest);
+    renderRequestHistory();
+    showRequestStatusOverlay(lastKnownRequest);
+
     const result =
         document.getElementById(
             "resultBox"
@@ -3440,6 +3681,7 @@ function updateRequestUI(
         resultKey.style.display =
             "none";
 
+        updateHomeStatus(request);
         return;
     }
 
@@ -3502,6 +3744,9 @@ function updateRequestUI(
         updateHomeStatus(
             request
         );
+
+        localStorage.removeItem("hrry_request_id");
+        currentRequestId = null;
 
     }
 }
@@ -3627,13 +3872,91 @@ function restoreRequest(){
             "hrry_request_id"
         );
 
+    renderRequestHistory();
 
-    if(
-        currentRequestId
-    ){
-
+    if(currentRequestId){
+        const history = getRequestHistory();
+        lastKnownRequest = history.find(x => String(x.requestId) === String(currentRequestId)) || {requestId:currentRequestId,status:"pending"};
         startStatusPolling();
     }
+}
+
+function getRequestHistory(){
+    try{ return JSON.parse(localStorage.getItem("hrry_request_history") || "[]"); }catch(e){ return []; }
+}
+
+function saveRequestHistory(request){
+    if(!request || !request.requestId) return;
+    const list = getRequestHistory();
+    const id = String(request.requestId);
+    const idx = list.findIndex(x => String(x.requestId) === id);
+    const item = { ...((idx >= 0 ? list[idx] : {})), ...request, requestId:id, updatedAt:Date.now() };
+    if(idx >= 0) list[idx] = item; else list.unshift(item);
+    localStorage.setItem("hrry_request_history", JSON.stringify(list.slice(0,20)));
+}
+
+function renderRequestHistory(){
+    const listEl = document.getElementById("historyList");
+    const countEl = document.getElementById("historyCount");
+    if(!listEl) return;
+    const list = getRequestHistory();
+    if(countEl) countEl.textContent = list.length + (list.length === 1 ? " REQUEST" : " REQUESTS");
+    if(!list.length){ listEl.innerHTML = '<div class="historyEmpty">No request history yet.</div>'; return; }
+    listEl.innerHTML = list.map(r => {
+        const status = r.status || "pending";
+        const label = status === "accepted" ? "ACCEPTED BY ADMIN" : status === "rejected" ? "REJECTED BY ADMIN" : "REQUESTED • UNDER REVIEW";
+        const date = r.updatedAt || r.createdAt ? new Date(r.updatedAt || r.createdAt).toLocaleString() : "";
+        return `<div class="historyItem"><div class="historyRow"><div class="historyId">REQUEST ID: ${escapeHtml(r.requestId)}</div><div class="historyTime">${escapeHtml(date)}</div></div><div class="historyMeta"><div>WHATSAPP: ${escapeHtml(r.whatsapp || "—")}</div><div>UTR: ${escapeHtml(r.utr || "—")}</div><div>AMOUNT: ₹${escapeHtml(String(r.amount || PRICE))}</div></div><div class="historyStatus ${status}">${label}</div></div>`;
+    }).join("");
+}
+
+function escapeHtml(value){
+    return String(value == null ? "" : value).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]));
+}
+
+function showRequestStatusOverlay(request){
+    if(!request) return;
+    const overlay = document.getElementById("requestStatusOverlay");
+    const modal = document.getElementById("requestModal");
+    const icon = document.getElementById("requestModalIcon");
+    const title = document.getElementById("requestModalTitle");
+    const sub = document.getElementById("requestModalSub");
+    const id = document.getElementById("requestModalId");
+    const status = document.getElementById("requestModalStatus");
+    const keyBox = document.getElementById("requestModalKey");
+    const key = document.getElementById("requestModalKeyValue");
+    const copy = document.getElementById("requestModalCopy");
+    const newer = document.getElementById("requestModalNew");
+    if(!overlay || !modal) return;
+    modal.className = "requestModal " + (request.status || "pending");
+    id.textContent = "REQUEST ID: " + (request.requestId || currentRequestId || "—");
+    keyBox.style.display = "none"; copy.style.display = "none"; newer.style.display = "none";
+    if(request.status === "accepted"){
+        icon.textContent = "✓"; title.textContent = "KEY GENERATED"; sub.textContent = "Your request has been accepted by admin. Your generated key is ready."; status.textContent = "ACCEPTED BY ADMIN"; status.style.color = "#32d583";
+        key.textContent = request.key || "Key unavailable"; keyBox.style.display = "block"; copy.style.display = "block";
+    }else if(request.status === "rejected"){
+        icon.textContent = "×"; title.textContent = "REQUEST REJECTED"; sub.textContent = "Your request was rejected by admin. You can now submit a new payment request."; status.textContent = "REJECTED BY ADMIN"; status.style.color = "#ff4d67"; newer.style.display = "block";
+    }else{
+        icon.textContent = "⏳"; title.textContent = "REQUEST SUBMITTED"; sub.textContent = "Your request is submitted and currently waiting for admin review. You cannot submit another request while this one is pending."; status.textContent = "REQUESTED • UNDER REVIEW"; status.style.color = "#ffd447";
+    }
+    overlay.style.display = "flex";
+}
+
+function closeRequestStatusOverlay(){
+    const overlay = document.getElementById("requestStatusOverlay");
+    if(overlay) overlay.style.display = "none";
+}
+
+function copyRequestModalKey(){
+    const key = document.getElementById("requestModalKeyValue")?.textContent.trim();
+    if(!key) return;
+    navigator.clipboard.writeText(key).then(()=>toast("Key copied successfully.")).catch(()=>toast("Copy failed."));
+}
+
+function startNewRequestFromModal(){
+    if(lastKnownRequest && lastKnownRequest.status !== "rejected") return;
+    closeRequestStatusOverlay();
+    openFreshPayment();
 }
 
 
