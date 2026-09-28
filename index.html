@@ -3579,9 +3579,20 @@ async function checkRequestStatus(){
         }
 
 
-        const request =
-            data.request;
+        const request = {
+            ...(data.request || {})
+        };
 
+        /*
+          Some server versions return the generated key outside
+          request.key (for example data.key / generatedKey).
+          Normalize every supported response shape here so the
+          UI never shows "Key unavailable" when the server sent it.
+        */
+        const serverKey = extractGeneratedKey(data);
+        if(serverKey){
+            request.key = serverKey;
+        }
 
         updateRequestUI(
             request
@@ -3625,9 +3636,39 @@ async function checkRequestStatus(){
    UPDATE REQUEST UI
 ===================================================== */
 
+function extractGeneratedKey(source){
+    if(!source || typeof source !== "object") return "";
+
+    const candidates = [
+        source.key,
+        source.generatedKey,
+        source.accessKey,
+        source.activationKey,
+        source.keyCode,
+        source.request?.key,
+        source.request?.generatedKey,
+        source.request?.accessKey,
+        source.request?.activationKey,
+        source.request?.keyCode,
+        source.data?.key,
+        source.data?.generatedKey,
+        source.result?.key,
+        source.result?.generatedKey
+    ];
+
+    const key = candidates.find(v =>
+        typeof v === "string" && v.trim().length > 0
+    );
+
+    return key ? key.trim() : "";
+}
+
 function updateRequestUI(
     request
 ){
+
+    const normalizedKey = extractGeneratedKey(request);
+    if(normalizedKey) request.key = normalizedKey;
 
     lastKnownRequest = { ...lastKnownRequest, ...request, requestId: request.requestId || request.id || currentRequestId };
     saveRequestHistory(lastKnownRequest);
@@ -3703,15 +3744,18 @@ function updateRequestUI(
         resultKey.style.display =
             "block";
 
+        const generatedKey = extractGeneratedKey(request) || localStorage.getItem("hrry_active_key") || "";
         resultKey.textContent =
-            request.key ||
+            generatedKey ||
             "Key unavailable";
 
 
-        localStorage.setItem(
-            "hrry_active_key",
-            request.key || ""
-        );
+        if(generatedKey){
+            localStorage.setItem(
+                "hrry_active_key",
+                generatedKey
+            );
+        }
 
 
         updateHomeStatus(
@@ -3834,7 +3878,8 @@ function updateHomeStatus(
             "block";
 
         key.textContent =
-            request.key ||
+            extractGeneratedKey(request) ||
+            localStorage.getItem("hrry_active_key") ||
             "";
 
         return;
@@ -3932,8 +3977,13 @@ function showRequestStatusOverlay(request){
     id.textContent = "REQUEST ID: " + (request.requestId || currentRequestId || "—");
     keyBox.style.display = "none"; copy.style.display = "none"; newer.style.display = "none";
     if(request.status === "accepted"){
+        const generatedKey = extractGeneratedKey(request) || localStorage.getItem("hrry_active_key") || "";
         icon.textContent = "✓"; title.textContent = "KEY GENERATED"; sub.textContent = "Your request has been accepted by admin. Your generated key is ready."; status.textContent = "ACCEPTED BY ADMIN"; status.style.color = "#32d583";
-        key.textContent = request.key || "Key unavailable"; keyBox.style.display = "block"; copy.style.display = "block";
+        key.textContent = generatedKey || "Key unavailable"; keyBox.style.display = "block"; copy.style.display = "block";
+        if(generatedKey){
+            request.key = generatedKey;
+            localStorage.setItem("hrry_active_key", generatedKey);
+        }
     }else if(request.status === "rejected"){
         icon.textContent = "×"; title.textContent = "REQUEST REJECTED"; sub.textContent = "Your request was rejected by admin. You can now submit a new payment request."; status.textContent = "REJECTED BY ADMIN"; status.style.color = "#ff4d67"; newer.style.display = "block";
     }else{
