@@ -314,6 +314,102 @@ button{
 
 
 /* =====================================================
+   TELEGRAM LOGIN + PROFILE OVERRIDES
+===================================================== */
+
+.telegramProfile{
+    display:none;
+    align-items:center;
+    gap:12px;
+    margin:0 0 18px;
+    padding:12px;
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.telegramAvatar{
+    width:58px;
+    height:58px;
+    flex:0 0 58px;
+    border-radius:18px;
+    object-fit:cover;
+    background:#18202c;
+    border:1px solid rgba(255,255,255,.10);
+}
+
+.telegramProfileName{
+    font-size:15px;
+    font-weight:900;
+}
+
+.telegramProfileMeta{
+    margin-top:4px;
+    color:#8e99aa;
+    font-size:11px;
+    line-height:1.45;
+}
+
+.telegramBindBtn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    width:100%;
+    min-height:56px;
+    border:0;
+    border-radius:17px;
+    background:linear-gradient(135deg,#38aefc,#168de2);
+    color:#fff;
+    font-size:15px;
+    font-weight:900;
+    box-shadow:0 15px 35px rgba(22,141,226,.20);
+    transition:.2s ease;
+}
+
+.telegramBindBtn:active{transform:scale(.98);}
+.telegramBindBtn:disabled{opacity:.6;cursor:not-allowed;}
+
+.bindStatus{
+    display:none;
+    margin-top:13px;
+    padding:11px 12px;
+    border-radius:13px;
+    background:#0b1018;
+    border:1px solid rgba(255,255,255,.07);
+    color:#8e99aa;
+    font-size:11px;
+    text-align:center;
+    line-height:1.5;
+}
+
+.profileMini{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    max-width:170px;
+    padding:6px 9px 6px 6px;
+}
+
+.profileMiniImg{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+    border-radius:10px;
+    object-fit:cover;
+    background:#1b2330;
+}
+
+.profileMiniName{
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    font-size:11px;
+    font-weight:900;
+}
+
+/* =====================================================
    MAIN APP
 ===================================================== */
 
@@ -651,291 +747,6 @@ button{
     font-weight:900;
 }
 
-
-
-/* =====================================================
-   ENHANCED REQUEST / HISTORY UI
-===================================================== */
-
-.getBtn{
-    min-width:170px;
-    min-height:58px;
-    padding:15px 22px;
-    font-size:15px;
-    box-shadow:0 12px 35px rgba(255,188,0,.20);
-    transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
-    animation:getKeyPulse 2.2s ease-in-out infinite;
-}
-.getBtn:hover{
-    transform:translateY(-2px) scale(1.01);
-    box-shadow:0 18px 45px rgba(255,188,0,.28);
-}
-.getBtn:active{transform:scale(.96)}
-@keyframes getKeyPulse{
-    0%,100%{box-shadow:0 12px 35px rgba(255,188,0,.18)}
-    50%{box-shadow:0 16px 48px rgba(255,188,0,.34)}
-}
-
-.historyCard{
-    margin-top:14px;
-    padding:17px;
-    border-radius:20px;
-    background:#10151f;
-    border:1px solid var(--border);
-}
-.historyHead{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-.historyTitle{
-    font-size:14px;
-    font-weight:900;
-}
-.historyCount{
-    color:#737f91;
-    font-size:10px;
-    font-weight:800;
-}
-.historyList{
-    display:grid;
-    gap:9px;
-    margin-top:12px;
-}
-.historyItem{
-    padding:12px;
-    border-radius:14px;
-    background:#0b1018;
-    border:1px solid rgba(255,255,255,.06);
-}
-.historyRow{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-}
-.historyStatus{
-    font-size:11px;
-    font-weight:900;
-}
-.historyMeta{
-    margin-top:5px;
-    color:#748093;
-    font-size:9px;
-    line-height:1.45;
-}
-.historyPending{color:#ffd447}
-.historyAccepted{color:#32d583}
-.historyRejected{color:#ff4d67}
-.historyEmpty{
-    padding:12px;
-    color:#687386;
-    font-size:10px;
-    text-align:center;
-}
-
-.statusCard.pendingState{
-    border-color:rgba(255,212,71,.24);
-}
-.statusCard.acceptedState{
-    border-color:rgba(50,213,131,.28);
-}
-.statusCard.rejectedState{
-    border-color:rgba(255,77,103,.28);
-}
-.statusCard.rejectedState .statusValue,
-.statusCard.rejectedState .statusMessage{
-    color:#ff6d82;
-}
-.statusCard.acceptedState .statusValue,
-.statusCard.acceptedState .statusMessage{
-    color:#55dfa0;
-}
-.statusCard.pendingState .statusValue{
-    color:#ffd447;
-}
-
-#requestStatusOverlay{
-    position:fixed;
-    inset:0;
-    z-index:100020;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(2,4,8,.92);
-    backdrop-filter:blur(22px);
-}
-.requestStatusCard{
-    width:min(460px,100%);
-    padding:28px 20px 20px;
-    border-radius:28px;
-    background:linear-gradient(145deg,#171d29,#0d121a);
-    border:1px solid rgba(255,255,255,.09);
-    box-shadow:0 35px 100px rgba(0,0,0,.60);
-    text-align:center;
-    transform:translateY(18px) scale(.96);
-    opacity:0;
-    animation:statusPop .28s ease forwards;
-}
-@keyframes statusPop{
-    to{transform:translateY(0) scale(1);opacity:1}
-}
-.requestStatusIcon{
-    width:78px;
-    height:78px;
-    margin:0 auto 15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:24px;
-    font-size:38px;
-    background:#121823;
-}
-.requestStatusTitle{
-    font-size:23px;
-    font-weight:900;
-}
-.requestStatusText{
-    margin-top:8px;
-    color:#8e99aa;
-    font-size:12px;
-    line-height:1.55;
-}
-.requestStatusBadge{
-    display:inline-flex;
-    margin-top:16px;
-    padding:9px 14px;
-    border-radius:100px;
-    background:#121823;
-    font-size:10px;
-    font-weight:900;
-}
-.requestStatusKey{
-    display:none;
-    margin-top:15px;
-    padding:15px;
-    border-radius:17px;
-    background:rgba(50,213,131,.08);
-    border:1px solid rgba(50,213,131,.25);
-    color:#62e59b;
-    font-size:21px;
-    font-weight:900;
-    word-break:break-all;
-}
-.requestStatusActions{
-    display:grid;
-    gap:10px;
-    margin-top:18px;
-}
-.requestPrimary,
-.requestSecondary{
-    width:100%;
-    min-height:55px;
-    border:0;
-    border-radius:17px;
-    font-size:14px;
-    font-weight:900;
-}
-.requestPrimary{
-    background:linear-gradient(135deg,#ffe68a,#ffd447,#ffb400);
-    color:#15120a;
-}
-.requestSecondary{
-    background:#171e29;
-    color:#fff;
-    border:1px solid rgba(255,255,255,.08);
-}
-.requestStatusCard.pending .requestStatusBadge{color:#ffd447}
-.requestStatusCard.accepted .requestStatusBadge{color:#32d583}
-.requestStatusCard.rejected .requestStatusBadge{color:#ff4d67}
-
-.uploadBox.uploaded{
-    border-color:rgba(50,213,131,.45);
-    background:rgba(50,213,131,.06);
-}
-.uploadPreview{
-    display:none;
-    width:74px;
-    height:74px;
-    margin:0 auto 10px;
-    border-radius:16px;
-    overflow:hidden;
-    border:2px solid rgba(50,213,131,.35);
-    background:#0b1018;
-}
-.uploadPreview img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-.uploadBox.uploaded .uploadPreview{display:block}
-.uploadBox.uploaded .uploadIcon{display:none}
-.uploadBox.uploaded .uploadTitle{
-    color:#55dfa0;
-    font-size:16px;
-}
-.uploadBox.uploaded .uploadSub{color:#83cfa9}
-
-.submitBtn{
-    min-height:62px;
-    font-size:15px;
-    letter-spacing:.2px;
-    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    box-shadow:0 13px 35px rgba(255,188,0,.18);
-}
-.submitBtn:active{transform:scale(.975)}
-.submitBtn.submitting{
-    position:relative;
-    color:transparent;
-    box-shadow:0 0 0 9999px rgba(255,212,71,.035), 0 18px 55px rgba(255,188,0,.24);
-}
-.submitBtn.submitting:after{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:50%;
-    width:25px;
-    height:25px;
-    margin:-12.5px 0 0 -12.5px;
-    border:3px solid rgba(21,18,10,.25);
-    border-top-color:#15120a;
-    border-radius:50%;
-    animation:submitSpin .72s linear infinite;
-}
-@keyframes submitSpin{to{transform:rotate(360deg)}}
-
-.resultBox.fullResult{
-    position:fixed;
-    inset:0;
-    z-index:100030;
-    margin:0;
-    padding:28px 20px;
-    border:0;
-    border-radius:0;
-    display:none;
-    background:rgba(2,4,8,.94);
-    backdrop-filter:blur(24px);
-    align-items:center;
-    justify-content:center;
-}
-.fullResultInner{
-    width:min(460px,100%);
-    padding:28px 20px;
-    border-radius:28px;
-    background:linear-gradient(145deg,#171d29,#0d121a);
-    border:1px solid rgba(255,255,255,.09);
-    text-align:center;
-    box-shadow:0 35px 100px rgba(0,0,0,.60);
-}
-.fullResult .resultIcon{font-size:58px}
-.fullResult .resultTitle{font-size:24px}
-.fullResult .resultText{font-size:12px}
-
-@media(max-width:370px){
-    .getBtn{min-width:150px;font-size:13px}
-}
 
 /* =====================================================
    PAYMENT MODAL
@@ -1622,64 +1433,38 @@ button{
     <div class="loginCard">
 
         <div class="loginIcon">
-            👤
+            ✈️
         </div>
 
         <div class="loginTitle">
-            Enter Your Details
+            Connect Telegram
         </div>
 
         <div class="loginSub">
-            First enter your name and WhatsApp
-            number to continue to HRRY KEY.
+            Bind your Telegram account once. Your profile will be created automatically and verified on future visits.
         </div>
 
-
-        <div class="field">
-
-            <label>
-                STUDENT NAME
-            </label>
-
-            <input
-                id="loginName"
-                class="input"
-                type="text"
-                autocomplete="name"
-                placeholder="Enter your name"
-            >
-
+        <div id="telegramProfile" class="telegramProfile">
+            <img id="telegramAvatar" class="telegramAvatar" alt="Telegram profile">
+            <div>
+                <div id="telegramProfileName" class="telegramProfileName">Telegram User</div>
+                <div id="telegramProfileMeta" class="telegramProfileMeta">Waiting for verification...</div>
+            </div>
         </div>
-
-
-        <div class="field">
-
-            <label>
-                WHATSAPP NUMBER
-            </label>
-
-            <input
-                id="loginWhatsapp"
-                class="input"
-                type="tel"
-                inputmode="numeric"
-                autocomplete="tel"
-                maxlength="15"
-                placeholder="Enter WhatsApp number"
-            >
-
-        </div>
-
 
         <button
-            class="primaryBtn"
-            onclick="saveProfile()"
+            id="telegramBindBtn"
+            class="telegramBindBtn"
+            onclick="startTelegramBinding()"
         >
-            CONTINUE →
+            <span>✈️</span>
+            <span>CONNECT TELEGRAM</span>
         </button>
 
+        <div id="bindStatus" class="bindStatus"></div>
+
         <div class="loginNote">
-            Your details are saved on this device.
+            Secure Telegram verification • No manual profile form
         </div>
 
     </div>
@@ -1722,7 +1507,8 @@ button{
                 id="profileMini"
                 class="profileMini"
             >
-                Student
+                <img id="profileMiniImg" class="profileMiniImg" alt="Profile">
+                <span id="profileMiniName" class="profileMiniName">Student</span>
             </div>
 
         </div>
@@ -1769,7 +1555,6 @@ button{
 
 
                 <button
-                    id="getKeyButton"
                     class="getBtn"
                     onclick="openPayment()"
                 >
@@ -1903,18 +1688,6 @@ button{
 
         </section>
 
-
-        <!-- REQUEST HISTORY -->
-        <section id="historyCard" class="historyCard">
-            <div class="historyHead">
-                <div class="historyTitle">REQUEST HISTORY</div>
-                <div id="historyCount" class="historyCount">0 REQUESTS</div>
-            </div>
-            <div id="historyList" class="historyList">
-                <div class="historyEmpty">No request history yet.</div>
-            </div>
-        </section>
-
     </main>
 
 </div>
@@ -1922,7 +1695,7 @@ button{
 
 <!-- =====================================================
      PAYMENT PAGE
-==================================================== -->
+===================================================== -->
 
 <div id="paymentModal">
 
@@ -2034,10 +1807,6 @@ button{
             >
 
                 <div>
-
-                    <div class="uploadPreview" id="uploadPreview">
-                        <img id="uploadPreviewImage" alt="Uploaded screenshot preview">
-                    </div>
 
                     <div class="uploadIcon">
                         📸
@@ -2206,29 +1975,6 @@ button{
 </div>
 
 
-
-<!-- =====================================================
-     REQUEST STATUS FULLSCREEN
-===================================================== -->
-<div id="requestStatusOverlay">
-    <div id="requestStatusCard" class="requestStatusCard pending">
-        <div id="requestStatusIcon" class="requestStatusIcon">⏳</div>
-        <div id="requestStatusTitle" class="requestStatusTitle">Request Submitted</div>
-        <div id="requestStatusText" class="requestStatusText">
-            Your request has been submitted and is waiting for admin review.
-        </div>
-        <div id="requestStatusBadge" class="requestStatusBadge">REQUESTED • PENDING</div>
-        <div id="requestStatusKey" class="requestStatusKey"></div>
-        <div class="requestStatusActions">
-            <button id="requestStatusPrimary" class="requestPrimary" onclick="handleStatusPrimary()">
-                CHECK REQUEST STATUS
-            </button>
-            <button class="requestSecondary" onclick="closeRequestStatusOverlay()">CLOSE</button>
-        </div>
-    </div>
-</div>
-
-
 <!-- =====================================================
      QR VIEWER
 ===================================================== -->
@@ -2289,11 +2035,7 @@ let uploadId = null;
 
 let currentRequestId = null;
 
-let currentRequest = null;
-
 let statusTimer = null;
-
-let requestHistory = [];
 
 
 /* =====================================================
@@ -2362,133 +2104,470 @@ function startApplication(){
    LOGIN / PROFILE
 ===================================================== */
 
-function loadSavedProfile(){
+function telegramPhotoUrl(fileId){
 
-    try{
-
-        const saved =
-            localStorage.getItem(
-                "hrry_profile"
-            );
-
-        if(saved){
-
-            profile =
-                JSON.parse(
-                    saved
-                );
-
-            if(
-                profile.name &&
-                profile.whatsapp
-            ){
-
-                showApp();
-
-                return;
-            }
-        }
-
-    }
-    catch(error){
-
-        console.error(error);
-
+    if(!fileId){
+        return "";
     }
 
-
-    /*
-      No profile:
-      MAIN APP REMAINS HIDDEN.
-      LOGIN IS MANDATORY.
-    */
-
-    app.style.display =
-        "none";
-
-    loginOverlay.style.display =
-        "flex";
+    return SERVER_URL +
+        "/api/telegram/photo/" +
+        encodeURIComponent(fileId);
 }
 
 
-function saveProfile(){
+function setTelegramProfileUI(){
 
-    const name =
-        document
-            .getElementById(
-                "loginName"
-            )
-            .value
-            .trim();
-
-
-    const whatsapp =
-        document
-            .getElementById(
-                "loginWhatsapp"
-            )
-            .value
-            .trim();
-
-
-    if(
-        !name
-    ){
-
-        toast(
-            "Please enter your name."
-        );
-
+    if(!profile){
         return;
     }
 
+    const miniImg =
+        document.getElementById("profileMiniImg");
 
-    const clean =
-        whatsapp.replace(
-            /\D/g,
-            ""
-        );
+    const miniName =
+        document.getElementById("profileMiniName");
 
+    const loginProfile =
+        document.getElementById("telegramProfile");
 
-    if(
-        clean.length !== 10
-    ){
+    const loginAvatar =
+        document.getElementById("telegramAvatar");
 
-        toast(
-            "Please enter a valid WhatsApp number."
-        );
+    const loginName =
+        document.getElementById("telegramProfileName");
 
-        return;
+    const loginMeta =
+        document.getElementById("telegramProfileMeta");
+
+    const photo =
+        telegramPhotoUrl(profile.photoFileId);
+
+    if(miniImg){
+        if(photo){
+            miniImg.src = photo;
+            miniImg.style.display = "block";
+        }else{
+            miniImg.style.display = "none";
+        }
     }
 
+    if(miniName){
+        miniName.textContent =
+            profile.name ||
+            "Telegram User";
+    }
+
+    if(loginProfile){
+        loginProfile.style.display = "flex";
+    }
+
+    if(loginAvatar){
+        if(photo){
+            loginAvatar.src = photo;
+            loginAvatar.style.display = "block";
+        }else{
+            loginAvatar.style.display = "none";
+        }
+    }
+
+    if(loginName){
+        loginName.textContent =
+            profile.name ||
+            "Telegram User";
+    }
+
+    if(loginMeta){
+        loginMeta.textContent =
+            (profile.username
+                ? "@" + profile.username
+                : "Telegram user") +
+            " • ID " +
+            (profile.telegramId || "—");
+    }
+}
+
+
+function saveTelegramSession(
+    sessionToken,
+    telegramProfile
+){
+
+    if(!sessionToken || !telegramProfile){
+        return false;
+    }
 
     profile = {
-
-        name,
-
-        whatsapp:
-
-            clean,
-
-        savedAt:
-            Date.now()
+        ...telegramProfile,
+        savedAt:Date.now()
     };
 
+    localStorage.setItem(
+        "hrry_telegram_session",
+        sessionToken
+    );
 
     localStorage.setItem(
         "hrry_profile",
-
-        JSON.stringify(
-            profile
-        )
+        JSON.stringify(profile)
     );
 
+    return true;
+}
 
-    showApp();
+
+async function verifySavedTelegramSession(){
+
+    const sessionToken =
+        localStorage.getItem(
+            "hrry_telegram_session"
+        );
+
+    if(!sessionToken){
+        return false;
+    }
+
+    try{
+
+        const response =
+            await fetch(
+                SERVER_URL +
+                "/api/telegram/verify-session",
+                {
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    body:JSON.stringify({
+                        sessionToken
+                    })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if(
+            !response.ok ||
+            !data.ok ||
+            !data.verified ||
+            !data.profile
+        ){
+
+            localStorage.removeItem(
+                "hrry_telegram_session"
+            );
+
+            localStorage.removeItem(
+                "hrry_profile"
+            );
+
+            return false;
+        }
+
+        saveTelegramSession(
+            sessionToken,
+            data.profile
+        );
+
+        return true;
+
+    }catch(error){
+
+        console.error(
+            "Telegram session verify error:",
+            error
+        );
+
+        return false;
+    }
+}
+
+
+async function startTelegramBinding(){
+
+    const btn =
+        document.getElementById(
+            "telegramBindBtn"
+        );
+
+    const status =
+        document.getElementById(
+            "bindStatus"
+        );
+
+    if(btn){
+        btn.disabled = true;
+        btn.innerHTML =
+            "<span>⏳</span><span>CREATING SECURE LINK...</span>";
+    }
+
+    if(status){
+        status.style.display = "block";
+        status.textContent =
+            "Secure Telegram binding session is being created...";
+    }
+
+    try{
+
+        const response =
+            await fetch(
+                SERVER_URL +
+                "/api/telegram/bind-start",
+                {
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+                    body:"{}"
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if(
+            !response.ok ||
+            !data.ok ||
+            !data.token ||
+            !data.botLink
+        ){
+            throw new Error(
+                data.error ||
+                "Could not create Telegram binding link."
+            );
+        }
+
+        localStorage.setItem(
+            "hrry_telegram_bind_token",
+            data.token
+        );
+
+        if(status){
+            status.textContent =
+                "Telegram open करें और Start दबाएँ. Verification अपने-आप हो जाएगी.";
+        }
+
+        const telegramWindow =
+            window.open(
+                data.botLink,
+                "_blank"
+            );
+
+        if(!telegramWindow){
+            if(status){
+                status.textContent =
+                    "Telegram open करने के लिए popup allow करें और फिर Connect Telegram दबाएँ.";
+            }
+
+            if(btn){
+                btn.disabled = false;
+                btn.innerHTML =
+                    "<span>✈️</span><span>CONNECT TELEGRAM</span>";
+            }
+
+            return;
+        }
+
+        pollTelegramBinding(
+            data.token
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        if(status){
+            status.style.display = "block";
+            status.textContent =
+                error.message ||
+                "Telegram binding failed. Please try again.";
+        }
+
+        if(btn){
+            btn.disabled = false;
+            btn.innerHTML =
+                "<span>✈️</span><span>CONNECT TELEGRAM</span>";
+        }
+    }
+}
+
+
+let telegramBindTimer = null;
+
+
+function pollTelegramBinding(token){
+
+    if(telegramBindTimer){
+        clearInterval(telegramBindTimer);
+    }
+
+    let attempts = 0;
+
+    telegramBindTimer =
+        setInterval(async () => {
+
+            attempts++;
+
+            if(attempts > 120){
+                clearInterval(telegramBindTimer);
+                telegramBindTimer = null;
+                return;
+            }
+
+            try{
+
+                const response =
+                    await fetch(
+                        SERVER_URL +
+                        "/api/telegram/bind-status/" +
+                        encodeURIComponent(token),
+                        {cache:"no-store"}
+                    );
+
+                const data =
+                    await response.json();
+
+                if(data.status === "verified"){
+
+                    clearInterval(
+                        telegramBindTimer
+                    );
+
+                    telegramBindTimer = null;
+
+                    if(
+                        saveTelegramSession(
+                            data.sessionToken,
+                            data.profile
+                        )
+                    ){
+
+                        showApp();
+
+                        toast(
+                            "Telegram verified successfully."
+                        );
+                    }
+
+                    return;
+                }
+
+                if(data.status === "expired"){
+
+                    clearInterval(
+                        telegramBindTimer
+                    );
+
+                    telegramBindTimer = null;
+
+                    const status =
+                        document.getElementById(
+                            "bindStatus"
+                        );
+
+                    if(status){
+                        status.style.display = "block";
+                        status.textContent =
+                            "Binding session expired. Connect Telegram again.";
+                    }
+
+                    const btn =
+                        document.getElementById(
+                            "telegramBindBtn"
+                        );
+
+                    if(btn){
+                        btn.disabled = false;
+                        btn.innerHTML =
+                            "<span>✈️</span><span>CONNECT TELEGRAM</span>";
+                    }
+                }
+
+            }catch(error){
+                console.error(
+                    "Telegram bind polling error:",
+                    error
+                );
+            }
+
+        }, 2500);
+}
+
+
+function resumePendingTelegramBinding(){
+
+    const pendingToken =
+        localStorage.getItem(
+            "hrry_telegram_bind_token"
+        );
+
+    if(
+        pendingToken &&
+        !localStorage.getItem(
+            "hrry_telegram_session"
+        )
+    ){
+        pollTelegramBinding(
+            pendingToken
+        );
+    }
+}
+
+
+async function loadSavedProfile(){
+
+    app.style.display = "none";
+    loginOverlay.style.display = "none";
+
+    const verified =
+        await verifySavedTelegramSession();
+
+    if(verified && profile){
+        showApp();
+        return;
+    }
+
+    const oldSaved =
+        localStorage.getItem(
+            "hrry_profile"
+        );
+
+    /*
+      Old name/WhatsApp-only profiles are not
+      accepted as Telegram authentication.
+    */
+    if(oldSaved){
+        try{
+            const oldProfile =
+                JSON.parse(oldSaved);
+
+            if(
+                oldProfile &&
+                oldProfile.telegramId &&
+                localStorage.getItem(
+                    "hrry_telegram_session"
+                )
+            ){
+                profile = oldProfile;
+                showApp();
+                return;
+            }
+        }catch(error){
+            console.error(error);
+        }
+    }
+
+    app.style.display = "none";
+    loginOverlay.style.display = "flex";
 }
 
 
 function showApp(){
+
+    if(!profile){
+        return;
+    }
 
     loginOverlay.style.display =
         "none";
@@ -2496,40 +2575,9 @@ function showApp(){
     app.style.display =
         "block";
 
-
-    document.getElementById(
-        "profileMini"
-    ).textContent =
-        profile.name;
-
+    setTelegramProfileUI();
 
     restoreRequest();
-
-}
-
-
-function refreshGetKeyButton(){
-
-    const button =
-        document.getElementById(
-            "getKeyButton"
-        );
-
-    if(!button){
-        return;
-    }
-
-    if(
-        currentRequest &&
-        currentRequest.status === "pending"
-    ){
-        button.textContent =
-            "REQUEST STATUS →";
-    }
-    else{
-        button.textContent =
-            "GET KEY →";
-    }
 }
 
 
@@ -2539,19 +2587,12 @@ function refreshGetKeyButton(){
 
 function openPayment(){
 
-    if(
-        currentRequest &&
-        currentRequest.status === "pending"
-    ){
-        showRequestStatusOverlay(currentRequest);
-        return;
-    }
-
     paymentModal.style.display =
         "block";
 
     document.body.style.overflow =
         "hidden";
+
 
     resetPaymentForm();
 }
@@ -2584,15 +2625,6 @@ function resetPaymentForm(){
         "screenshotInput"
     ).value = "";
 
-    const uploadBox =
-        document.querySelector(".uploadBox");
-
-    uploadBox.classList.remove("uploaded");
-
-    document.getElementById(
-        "uploadPreviewImage"
-    ).removeAttribute("src");
-
     document.getElementById(
         "uploadTitle"
     ).textContent =
@@ -2603,15 +2635,18 @@ function resetPaymentForm(){
     ).textContent =
         "JPG / PNG / WEBP • Maximum 5 MB";
 
+
     document.getElementById(
         "uploadProgress"
     ).style.display =
         "none";
 
+
     document.getElementById(
         "resultBox"
     ).style.display =
         "none";
+
 
     const btn =
         document.getElementById(
@@ -2620,8 +2655,6 @@ function resetPaymentForm(){
 
     btn.disabled =
         false;
-
-    btn.classList.remove("submitting");
 
     btn.textContent =
         "SUBMIT PAYMENT REQUEST";
@@ -2653,6 +2686,7 @@ function handleFileSelect(
         return;
     }
 
+
     if(
         file.size >
         5 * 1024 * 1024
@@ -2668,11 +2702,13 @@ function handleFileSelect(
         return;
     }
 
+
     const allowed = [
         "image/jpeg",
         "image/png",
         "image/webp"
     ];
+
 
     if(
         !allowed.includes(
@@ -2690,31 +2726,23 @@ function handleFileSelect(
         return;
     }
 
+
     selectedFile =
         file;
 
-    const preview =
-        document.getElementById(
-            "uploadPreviewImage"
-        );
-
-    preview.src =
-        URL.createObjectURL(file);
-
-    document.querySelector(
-        ".uploadBox"
-    ).classList.add("uploaded");
 
     document.getElementById(
         "uploadTitle"
     ).textContent =
-        "SCREENSHOT UPLOADED ✓";
+        file.name;
+
 
     document.getElementById(
         "uploadSub"
     ).textContent =
         formatMB(file.size) +
         " • Ready to upload";
+
 
     uploadScreenshot(
         file
@@ -2932,12 +2960,6 @@ function uploadScreenshot(
                     status.textContent =
                         "Screenshot uploaded successfully ✓";
 
-                    document.getElementById("uploadTitle").textContent =
-                        "SCREENSHOT UPLOADED ✓";
-
-                    document.getElementById("uploadSub").textContent =
-                        formatMB(file.size) + " • Uploaded successfully";
-
 
                     toast(
                         "Screenshot uploaded."
@@ -3027,14 +3049,6 @@ function uploadScreenshot(
 
 async function submitPaymentRequest(){
 
-    if(
-        currentRequest &&
-        currentRequest.status === "pending"
-    ){
-        showRequestStatusOverlay(currentRequest);
-        return;
-    }
-
     const utr =
         document
             .getElementById(
@@ -3043,10 +3057,11 @@ async function submitPaymentRequest(){
             .value
             .trim();
 
+
     if(
         !profile ||
         !profile.name ||
-        !profile.whatsapp
+        !profile.telegramId
     ){
 
         toast(
@@ -3055,6 +3070,7 @@ async function submitPaymentRequest(){
 
         return;
     }
+
 
     if(
         !utr
@@ -3073,6 +3089,7 @@ async function submitPaymentRequest(){
         return;
     }
 
+
     if(
         !uploadId
     ){
@@ -3084,18 +3101,19 @@ async function submitPaymentRequest(){
         return;
     }
 
+
     const btn =
         document.getElementById(
             "submitBtn"
         );
 
+
     btn.disabled =
         true;
 
-    btn.classList.add("submitting");
-
     btn.textContent =
         "SUBMITTING REQUEST...";
+
 
     try{
 
@@ -3119,9 +3137,10 @@ async function submitPaymentRequest(){
                                 profile.name,
 
                             whatsapp:
-                                profile.whatsapp,
+                                profile.whatsapp || "",
 
                             utr:
+
                                 utr,
 
                             amount:
@@ -3130,14 +3149,27 @@ async function submitPaymentRequest(){
                             deviceId:
                                 getDeviceId(),
 
+                            /*
+                              Important:
+                              server expects uploadId
+                              in this field.
+                            */
+
                             telegramFileId:
-                                uploadId
+                                uploadId,
+
+                            telegramSessionToken:
+                                localStorage.getItem(
+                                    "hrry_telegram_session"
+                                )
                         })
                 }
             );
 
+
         const data =
             await response.json();
+
 
         if(
             !response.ok ||
@@ -3150,30 +3182,22 @@ async function submitPaymentRequest(){
             );
         }
 
+
         currentRequestId =
             data.requestId;
+
 
         localStorage.setItem(
             "hrry_request_id",
             currentRequestId
         );
 
-        currentRequest = {
-            status:"pending",
-            requestId:currentRequestId,
-            utr:utr,
-            createdAt:Date.now()
-        };
-
-        saveHistoryItem(currentRequest);
 
         showSubmittedState();
 
+
         startStatusPolling();
 
-        closePayment();
-
-        showRequestStatusOverlay(currentRequest);
 
     }
     catch(error){
@@ -3187,10 +3211,9 @@ async function submitPaymentRequest(){
             "Request failed."
         );
 
+
         btn.disabled =
             false;
-
-        btn.classList.remove("submitting");
 
         btn.textContent =
             "SUBMIT PAYMENT REQUEST";
@@ -3224,17 +3247,22 @@ function showSubmittedState(){
             "resultText"
         );
 
+
     result.style.display =
         "block";
+
 
     icon.textContent =
         "⏳";
 
+
     title.textContent =
-        "REQUEST SUBMITTED";
+        "Request Submitted";
+
 
     text.textContent =
-        "Your request is submitted successfully. Admin is reviewing your payment.";
+        "Your payment request is under review. Admin will verify your payment and process your key.";
+
 
     document.getElementById(
         "submitBtn"
@@ -3318,20 +3346,6 @@ async function checkRequestStatus(){
         const request =
             data.request;
 
-        currentRequest =
-            request;
-
-        if(
-            !request.requestId &&
-            currentRequestId
-        ){
-            request.requestId =
-                currentRequestId;
-        }
-
-        saveHistoryItem(
-            request
-        );
 
         updateRequestUI(
             request
@@ -3344,10 +3358,6 @@ async function checkRequestStatus(){
             request.status ===
                 "rejected"
         ){
-
-            showRequestStatusOverlay(
-                request
-            );
 
             if(
                 statusTimer
@@ -3383,11 +3393,6 @@ function updateRequestUI(
     request
 ){
 
-    currentRequest =
-        request;
-
-    refreshGetKeyButton();
-
     const result =
         document.getElementById(
             "resultBox"
@@ -3413,11 +3418,10 @@ function updateRequestUI(
             "resultKey"
         );
 
+
     result.style.display =
         "block";
 
-    saveHistoryItem(request);
-    updateHistoryUI();
 
     if(
         request.status ===
@@ -3428,20 +3432,17 @@ function updateRequestUI(
             "⏳";
 
         title.textContent =
-            "REQUESTED • PENDING";
+            "Under Review";
 
         text.textContent =
-            "Your request is submitted and waiting for admin review. You cannot create another request while this request is pending.";
+            "Your payment request is waiting for admin verification.";
 
         resultKey.style.display =
             "none";
 
-        updateHomeStatus(
-            request
-        );
-
         return;
     }
+
 
     if(
         request.status ===
@@ -3452,10 +3453,10 @@ function updateRequestUI(
             "✅";
 
         title.textContent =
-            "ACCEPTED • KEY GENERATED";
+            "Payment Accepted";
 
         text.textContent =
-            "Admin accepted your request. Your generated key is ready below.";
+            "Accepted by admin. Your key has been generated successfully.";
 
         resultKey.style.display =
             "block";
@@ -3464,17 +3465,21 @@ function updateRequestUI(
             request.key ||
             "Key unavailable";
 
+
         localStorage.setItem(
             "hrry_active_key",
             request.key || ""
         );
 
+
         updateHomeStatus(
             request
         );
 
+
         return;
     }
+
 
     if(
         request.status ===
@@ -3485,20 +3490,26 @@ function updateRequestUI(
             "❌";
 
         title.textContent =
-            "IGNORED / REJECTED REQUEST";
+            "Request Rejected";
 
         text.textContent =
-            "This request was rejected by admin. You can now create a new key request.";
+            "Rejected by admin. You can submit a new payment request with a new UTR and screenshot.";
 
         resultKey.style.display =
             "none";
 
+
         updateHomeStatus(
             request
         );
+
     }
 }
 
+
+/* =====================================================
+   HOME STATUS
+===================================================== */
 
 function updateHomeStatus(
     request
@@ -3534,27 +3545,21 @@ function updateHomeStatus(
             "homeKey"
         );
 
+
     card.style.display =
         "block";
 
-    card.classList.remove(
-        "pendingState",
-        "acceptedState",
-        "rejectedState"
-    );
 
     if(
         request.status ===
         "pending"
     ){
 
-        card.classList.add("pendingState");
-
         value.textContent =
-            "REQUESTED • PENDING";
+            "UNDER REVIEW";
 
         message.textContent =
-            "Request submitted. Waiting for admin review. GET KEY is locked until this request is completed.";
+            "Your payment request has been submitted and is waiting for admin verification.";
 
         dot.style.color =
             "#ffd447";
@@ -3565,18 +3570,17 @@ function updateHomeStatus(
         return;
     }
 
+
     if(
         request.status ===
         "accepted"
     ){
 
-        card.classList.add("acceptedState");
-
         value.textContent =
-            "ACCEPTED • GENERATED";
+            "ACCEPTED";
 
         message.textContent =
-            "Admin accepted the request. Your key is generated. You can create a new request from GET KEY if needed.";
+            "Accepted by admin. Your key is ready.";
 
         dot.style.color =
             "#32d583";
@@ -3591,18 +3595,17 @@ function updateHomeStatus(
         return;
     }
 
+
     if(
         request.status ===
         "rejected"
     ){
 
-        card.classList.add("rejectedState");
-
         value.textContent =
-            "IGNORED / REJECTED";
+            "REJECTED";
 
         message.textContent =
-            "Admin rejected this request. A new key request is now available.";
+            "Rejected by admin. You can submit a new request.";
 
         dot.style.color =
             "#ff4d67";
@@ -3610,197 +3613,6 @@ function updateHomeStatus(
         keyBox.style.display =
             "none";
     }
-}
-
-
-/* =====================================================
-   REQUEST STATUS FULLSCREEN
-===================================================== */
-
-function showRequestStatusOverlay(
-    request
-){
-
-    const overlay =
-        document.getElementById(
-            "requestStatusOverlay"
-        );
-
-    const card =
-        document.getElementById(
-            "requestStatusCard"
-        );
-
-    const icon =
-        document.getElementById(
-            "requestStatusIcon"
-        );
-
-    const title =
-        document.getElementById(
-            "requestStatusTitle"
-        );
-
-    const text =
-        document.getElementById(
-            "requestStatusText"
-        );
-
-    const badge =
-        document.getElementById(
-            "requestStatusBadge"
-        );
-
-    const key =
-        document.getElementById(
-            "requestStatusKey"
-        );
-
-    const primary =
-        document.getElementById(
-            "requestStatusPrimary"
-        );
-
-    card.className =
-        "requestStatusCard " +
-        (
-            request.status ||
-            "pending"
-        );
-
-    overlay.style.display =
-        "flex";
-
-    document.body.style.overflow =
-        "hidden";
-
-    key.style.display =
-        "none";
-
-    if(
-        request.status ===
-        "pending"
-    ){
-
-        icon.textContent =
-            "⏳";
-
-        title.textContent =
-            "REQUEST SUBMITTED";
-
-        text.textContent =
-            "Your request is already submitted. Please wait for admin review. You cannot submit another request while it is pending.";
-
-        badge.textContent =
-            "REQUESTED • PENDING";
-
-        primary.textContent =
-            "CHECK REQUEST STATUS";
-
-        primary.onclick =
-            function(){
-                checkRequestStatus();
-            };
-
-        return;
-    }
-
-    if(
-        request.status ===
-        "accepted"
-    ){
-
-        icon.textContent =
-            "✅";
-
-        title.textContent =
-            "REQUEST ACCEPTED";
-
-        text.textContent =
-            "Your request was accepted by admin and your key has been generated.";
-
-        badge.textContent =
-            "ACCEPTED • GENERATED";
-
-        if(request.key){
-            key.style.display =
-                "block";
-            key.textContent =
-                request.key;
-        }
-
-        primary.textContent =
-            "GET NEW KEY REQUEST";
-
-        primary.onclick =
-            function(){
-                closeRequestStatusOverlay();
-                openPaymentFormForNewRequest();
-            };
-
-        return;
-    }
-
-    if(
-        request.status ===
-        "rejected"
-    ){
-
-        icon.textContent =
-            "❌";
-
-        title.textContent =
-            "REQUEST REJECTED";
-
-        text.textContent =
-            "Admin rejected this request. You can now create a new request.";
-
-        badge.textContent =
-            "IGNORED / REJECTED";
-
-        primary.textContent =
-            "CREATE NEW KEY REQUEST";
-
-        primary.onclick =
-            function(){
-                closeRequestStatusOverlay();
-                openPaymentFormForNewRequest();
-            };
-    }
-}
-
-
-function closeRequestStatusOverlay(){
-
-    document.getElementById(
-        "requestStatusOverlay"
-    ).style.display =
-        "none";
-
-    if(
-        paymentModal.style.display !==
-        "block"
-    ){
-        document.body.style.overflow =
-            "";
-    }
-}
-
-
-function handleStatusPrimary(){
-    checkRequestStatus();
-}
-
-
-function openPaymentFormForNewRequest(){
-
-    paymentModal.style.display =
-        "block";
-
-    document.body.style.overflow =
-        "hidden";
-
-    resetPaymentForm();
 }
 
 
@@ -3815,7 +3627,6 @@ function restoreRequest(){
             "hrry_request_id"
         );
 
-    loadHistory();
 
     if(
         currentRequestId
@@ -3823,222 +3634,6 @@ function restoreRequest(){
 
         startStatusPolling();
     }
-    else{
-        updateHistoryUI();
-        refreshGetKeyButton();
-    }
-}
-
-
-
-/* =====================================================
-   LOCAL REQUEST HISTORY
-===================================================== */
-
-function loadHistory(){
-
-    try{
-        requestHistory =
-            JSON.parse(
-                localStorage.getItem(
-                    "hrry_request_history"
-                ) || "[]"
-            );
-
-        if(!Array.isArray(requestHistory)){
-            requestHistory = [];
-        }
-    }
-    catch{
-        requestHistory = [];
-    }
-
-    updateHistoryUI();
-}
-
-
-function saveHistoryItem(
-    request
-){
-
-    if(
-        !request
-    ){
-        return;
-    }
-
-    const id =
-        request.requestId ||
-        request.id ||
-        currentRequestId;
-
-    if(!id){
-        return;
-    }
-
-    const item = {
-        id:id,
-        status:request.status || "pending",
-        key:request.key || "",
-        utr:request.utr || "",
-        createdAt:
-            request.createdAt ||
-            request.created_at ||
-            Date.now(),
-        updatedAt:
-            request.updatedAt ||
-            request.updated_at ||
-            Date.now()
-    };
-
-    const index =
-        requestHistory.findIndex(
-            x => x.id === id
-        );
-
-    if(index >= 0){
-        requestHistory[index] = {
-            ...requestHistory[index],
-            ...item
-        };
-    }
-    else{
-        requestHistory.unshift(item);
-    }
-
-    requestHistory =
-        requestHistory
-            .slice(0,20);
-
-    localStorage.setItem(
-        "hrry_request_history",
-        JSON.stringify(
-            requestHistory
-        )
-    );
-
-    updateHistoryUI();
-}
-
-
-function updateHistoryUI(){
-
-    const list =
-        document.getElementById(
-            "historyList"
-        );
-
-    const count =
-        document.getElementById(
-            "historyCount"
-        );
-
-    if(
-        !list ||
-        !count
-    ){
-        return;
-    }
-
-    count.textContent =
-        requestHistory.length +
-        (
-            requestHistory.length === 1
-                ? " REQUEST"
-                : " REQUESTS"
-        );
-
-    if(
-        !requestHistory.length
-    ){
-
-        list.innerHTML =
-            '<div class="historyEmpty">No request history yet.</div>';
-
-        return;
-    }
-
-    list.innerHTML =
-        requestHistory
-            .map(
-                item => {
-
-                    const status =
-                        item.status === "accepted"
-                            ? "ACCEPTED • GENERATED"
-                            : item.status === "rejected"
-                                ? "IGNORED / REJECTED"
-                                : "REQUESTED • PENDING";
-
-                    const cls =
-                        item.status === "accepted"
-                            ? "historyAccepted"
-                            : item.status === "rejected"
-                                ? "historyRejected"
-                                : "historyPending";
-
-                    const date =
-                        formatHistoryDate(
-                            item.updatedAt ||
-                            item.createdAt
-                        );
-
-                    const idText =
-                        item.id
-                            ? "Request ID: " +
-                              String(item.id).slice(0,16)
-                            : "";
-
-                    return `
-                        <div class="historyItem">
-                            <div class="historyRow">
-                                <div class="historyStatus ${cls}">
-                                    ${status}
-                                </div>
-                                <div class="historyMeta">
-                                    ${date}
-                                </div>
-                            </div>
-                            <div class="historyMeta">
-                                ${idText}
-                            </div>
-                        </div>
-                    `;
-                }
-            )
-            .join("");
-}
-
-
-function formatHistoryDate(
-    value
-){
-
-    if(!value){
-        return "";
-    }
-
-    const date =
-        new Date(value);
-
-    if(
-        Number.isNaN(
-            date.getTime()
-        )
-    ){
-        return "";
-    }
-
-    return date.toLocaleString(
-        undefined,
-        {
-            day:"2-digit",
-            month:"short",
-            year:"numeric",
-            hour:"2-digit",
-            minute:"2-digit"
-        }
-    );
 }
 
 
@@ -4232,8 +3827,6 @@ document.addEventListener(
 
             closeQR();
 
-            closeRequestStatusOverlay();
-
             closePayment();
         }
 
@@ -4257,8 +3850,6 @@ document.addEventListener(
         app.style.display =
             "none";
 
-        loadHistory();
-
     }
 );
 
@@ -4266,3 +3857,16 @@ document.addEventListener(
 
 </body>
 </html>
+
+<script>
+window.addEventListener("load", function(){
+    try{
+        resumePendingTelegramBinding();
+    }catch(error){
+        console.error(
+            "Telegram pending binding resume error:",
+            error
+        );
+    }
+});
+</script>
